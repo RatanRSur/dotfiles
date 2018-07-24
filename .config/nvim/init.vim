@@ -26,7 +26,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'craigemery/vim-autotag'
 "testing zone
-Plug 'alvan/vim-closetag'
 Plug 'SirVer/ultisnips'
 Plug 'floobits/floobits-neovim'
 call plug#end()
