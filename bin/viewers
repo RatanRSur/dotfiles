@@ -1,0 +1,21 @@
+#!/bin/bash
+response=$(curl -H 'Client-ID: emj0nyx9jwie74zmu2xt2gmek4857f' -X GET 'https://api.twitch.tv/helix/streams?user_login=RainoCodes' 2>/dev/null)
+
+data_length=$(echo "$response" | jq ".data | length")
+
+
+if [ $data_length -eq 0 ]; then #no video playing on channel
+    exit
+else
+    viewers=$(echo "$response" | jq ".data[0].viewer_count")
+    if [ "$viewers" = "null" ]; then
+        viewers=0
+    fi
+    if [ $viewers -eq 1 ]; then
+        s=""
+    else
+        s="s"
+    fi
+    echo "LIVE ● $viewers viewer$s"
+fi
+
