@@ -272,4 +272,3 @@ autocmd BufReadPost *
             \ endif
 
 autocmd! bufwritepost init.vim source % "auto source this file
-autocmd! bufwritepost .nvimrc source % "auto source this file
