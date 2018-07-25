@@ -159,7 +159,7 @@ nnoremap <silent> <Right> :vertical resize -2<CR>
 nnoremap <silent> <Up> :resize -2<CR>
 nnoremap <silent> <Down> :resize +2<CR>
 
-noremap <C-c> <Nop>
+inoremap <C-c> <Esc>
 syntax enable
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
