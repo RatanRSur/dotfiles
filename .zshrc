@@ -84,6 +84,18 @@ if hash nvim 2>/dev/null; then
     export EDITOR="nvim"
     export VISUAL="nvim"
 fi
+
+if hash exa 2>/dev/null; then
+    unalias l
+    function l {
+        grid_option=""
+        if [ $(ls -a | wc -l) -gt $(tput lines) ]; then
+            grid_option="-G"
+        fi
+        exa -l -a $grid_option "$@"
+    }
+fi
+
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 #system independent exports
