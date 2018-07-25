@@ -37,8 +37,7 @@ export PATH=~/bin:$PATH
 os=`uname -s`
 case $os in
     "Darwin" )
-        export PATH=~/anaconda3/bin:"$PATH"
-        export PATH=~/anaconda2/bin:"$PATH"
+        export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
         #color output
         export CLICOLOR=1
         export LSCOLORS=exfxcxdxbxegedabagacad
