@@ -119,7 +119,6 @@ function dirty {
         nvim $(git --no-pager diff --name-only)
     fi
 }
-alias scala='scala -Dscala.color'
 
 backup() {
     for i
