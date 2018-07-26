@@ -1,9 +1,9 @@
 #!/bin/bash
 if [ -z "$TMUX" ]; then #start tmux
     cd ~
-    tmux new-session -d -n ".ratanrc"
-    tmux send-keys "cd .ratanrc; nvim" Enter
-    tmux split-window -h -c ".ratanrc"
+    tmux new-session -d -n "dotfiles"
+    tmux send-keys "cd dotfiles; nvim" Enter
+    tmux split-window -h -c "dotfiles"
     tmux new-window -n stf -c "stf"
     tmux -2 attach-session -d
 elif [ -e build.sbt ]; then #scala
