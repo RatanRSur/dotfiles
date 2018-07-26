@@ -10,10 +10,6 @@ elif [ -e build.sbt ]; then #scala
     tmux rename-window "$(pwd | xargs basename)"
     tmux split-pane -h
     tmux send-keys "sbt" Enter "~test" Enter
-    if [ "$1" = "stream" ]; then
-        tmux split-window -l 10 irssi
-        tmux send-keys "/2" Enter
-    fi
     tmux select-pane -t {left}
     nvim -c "tabnew | FZF src/test"
 fi

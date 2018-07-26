@@ -1,0 +1,5 @@
+#!/bin/bash
+
+tmux split-window -l 10 irssi
+sleep 1
+tmux send-keys "/2" Enter
