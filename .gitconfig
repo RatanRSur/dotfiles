@@ -1,0 +1,22 @@
+[core]
+    editor = nvim
+[filter "lfs"]
+    clean = git lfs clean %f
+    smudge = git lfs smudge %f
+    required = true
+[user]
+    email = ratan.r.sur@gmail.com
+    name = Ratan Rai Sur
+[push]
+    default = simple
+[alias]
+    co = checkout
+[pager]
+    diff = diff-so-fancy | less --tabs=4 -R
+    show = diff-so-fancy | less --tabs=4 -R
+[core]
+	excludesfile = ~/.global_ignore
+[merge]
+	conflictstyle = diff3
+[rerere]
+	enabled = true
