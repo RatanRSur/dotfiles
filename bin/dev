@@ -9,6 +9,7 @@ if [ -z "$TMUX" ]; then #start tmux
     tmux send-keys "l" Enter
     tmux select-pane -t {left}
     tmux new-window -n stf -c "stf"
+    tmux send-keys "l" Enter
     tmux -2 attach-session -d
 elif [ -e build.sbt ]; then #scala
     tmux rename-window "$(pwd | xargs basename)"
