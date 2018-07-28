@@ -4,6 +4,10 @@ if [ -z "$TMUX" ]; then #start tmux
     tmux new-session -d -n "dotfiles"
     tmux send-keys "cd dotfiles; nvim" Enter
     tmux split-window -h -c "dotfiles"
+    tmux send-keys "git status" Enter
+    tmux split-window -v -c "Downloads"
+    tmux send-keys "l" Enter
+    tmux select-pane -t {left}
     tmux new-window -n stf -c "stf"
     tmux -2 attach-session -d
 elif [ -e build.sbt ]; then #scala
