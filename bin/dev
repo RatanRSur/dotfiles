@@ -2,7 +2,7 @@
 if [ -z "$TMUX" ]; then #start tmux
     cd ~
     tmux new-session -d -n "dotfiles"
-    tmux send-keys "cd dotfiles; nvim" Enter
+    tmux send-keys "cd dotfiles; nvim .config/nvim/init.vim" Enter
     tmux split-window -h -c "dotfiles"
     tmux send-keys "git status" Enter
     tmux split-window -v -c "Downloads"
