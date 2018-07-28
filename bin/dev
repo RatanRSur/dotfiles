@@ -12,7 +12,7 @@ if [ -z "$TMUX" ]; then #start tmux
     tmux -2 attach-session -d
 elif [ -e build.sbt ]; then #scala
     tmux rename-window "$(pwd | xargs basename)"
-    tmux split-pane -h
+    tmux split-window -h
     tmux send-keys "sbt" Enter "~test" Enter
     tmux select-pane -t {left}
     nvim -c "tabnew | FZF src/test"
