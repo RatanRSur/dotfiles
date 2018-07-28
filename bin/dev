@@ -16,4 +16,8 @@ elif [ -e build.sbt ]; then #scala
     tmux send-keys "sbt" Enter "~test" Enter
     tmux select-pane -t {left}
     nvim -c "tabnew | FZF src/test"
+else
+    tmux rename-window "$(pwd | xargs basename)"
+    tmux split-window -h -d
+    nvim -c "FZF"
 fi
