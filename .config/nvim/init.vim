@@ -250,6 +250,7 @@ let g:fzf_colors = { 'fg':      ['fg', 'Normal'],
 map <Leader>e :FZF<CR>
 map <Leader>f :FZF 
 map <Leader>b :Buffers<CR>
+map <Leader>t :Tags<CR>
 map <Leader>l :Lines<CR>
 map <Leader>` :FZF ~<CR>
 map <Leader>% :FZF %:h<CR>
