@@ -10,6 +10,7 @@
 [push]
     default = simple
 [alias]
+    c = commit
     co = checkout
 [pager]
     diff = diff-so-fancy | less --tabs=4 -R
