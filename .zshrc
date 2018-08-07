@@ -70,7 +70,8 @@ case $os in
         alias l='ls -AlhF'
         alias c="xclip -i -selection clipboard"
         alias v="xclip -o -selection clipboard"
-        export BROWSER="chromium %s"
+        export BROWSER="google-chrome-stable %s"
+        alias sudo="sudo " # to preserve aliases when sudoing
         #work stuff
         [[ "$MMLSPARK_PROFILE" != "" ]] && . "$HOME/.mmlspark_profile"
         export PATH=/usr/local/mpi/bin:$PATH
