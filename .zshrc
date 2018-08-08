@@ -136,13 +136,6 @@ latexmode()
     ls "$1" | entr -c pdflatex --halt-on-error "$1"
 }
 
-ssh192()
-{
-    username="$1"
-    target="$2"
-    ssh "$username"@192.168.0."$2"
-}
-
 man() {
     env \
         LESS_TERMCAP_mb=$(printf "\e[1;31m") \
