@@ -200,7 +200,7 @@ bar {
 # class                 border  backgr. text    indicator child_border
 client.focused          #4c7899 $base01 #ffffff $base0A   $base0A
 
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 2
 gaps inner 5
 
 #chromium launch
