@@ -262,7 +262,7 @@ let $FZF_DEFAULT_COMMAND='ag
             \ --ignore Library
             \ --ignore Applications
             \ --ignore macports
-            \ --hidden -f -g ""'
+            \ --hidden -f -g "" 2>/dev/null'
 
 "jump to last opened position
 autocmd BufReadPost *
