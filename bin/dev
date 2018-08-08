@@ -20,5 +20,9 @@ elif [ -e build.sbt ]; then #scala
 else
     tmux rename-window "$(pwd | xargs basename)"
     tmux split-window -h -d
-    nvim -c "FZF"
+    if [ -d .git ]; then
+        dirty
+    else
+        nvim -c "FZF"
+    fi
 fi
