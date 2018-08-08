@@ -10,7 +10,7 @@
 # The pound(#) symbol may be used anywhere for comments.
 #
 # To specify a key, you can use 'xbindkeys --key' or
-# 'xbindkeys --multikey' and put one of the two lines in this file.
+# '' and put one of the two lines in this file.
 #
 # The format of a command line is:
 #    "command to start"
