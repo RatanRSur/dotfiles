@@ -111,15 +111,6 @@ alias gl='git log --graph --left-right --format="%Cgreen%h %Cblue%an %Creset%s %
 function grl {
     gl --color "$@" | head -$(($(stty size | cut -d ' ' -f 1) / 2))
 }
-function dirty {
-    dirty_files=$(git --no-pager diff --name-only)
-    if [ -z $dirty_files ]
-    then
-        return 1
-    else
-        nvim $(git --no-pager diff --name-only)
-    fi
-}
 
 backup() {
     for i

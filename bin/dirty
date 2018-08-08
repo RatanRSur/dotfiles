@@ -1,0 +1,8 @@
+#!/bin/sh
+
+dirty_files=$(git --no-pager diff --name-only)
+if [ -z "$dirty_files" ]; then
+    return 1
+else
+    nvim $dirty_files
+fi
