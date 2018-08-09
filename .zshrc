@@ -90,7 +90,7 @@ if hash exa 2>/dev/null; then
     unalias l
     function l {
         grid_option=""
-        if [ $(ls -a | wc -l) -gt $(tput lines) ]; then
+        if [ $(ls -A | wc -l) -gt $(tput lines) ]; then
             grid_option="-G"
         fi
         exa -l -a $grid_option "$@"
