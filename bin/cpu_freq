@@ -1,0 +1,12 @@
+#!/bin/sh
+freq=$(lscpu | grep "CPU MHz" | cut -d ' ' -f 15 | sed 's/\.[0-9]*$//')
+unit="MHz"
+
+if [ $(echo $freq | wc -c) -gt 4 ]; then
+    freq=$(echo $freq | sed -E 's/^([0-9])([0-9]).*$/\1\.\2/')
+    unit="GHz"
+fi
+
+echo "$freq $unit"
+
+#| sed -E 's/^.*([0-9])([0-9])[0-9]{2}\..*$/\1\.\2/'GHz
