@@ -68,8 +68,8 @@ case $os in
         #ls stuff
         export LS_COLORS=$LS_COLORS:'di=0;36:ow=0;37'
         alias l='ls -AlhF'
-        alias c="xclip -i -selection clipboard"
-        alias v="xclip -o -selection clipboard"
+        alias c="xsel -ib"
+        alias v="xsel -ob"
         export BROWSER="google-chrome-stable %s"
         alias sudo="sudo " # to preserve aliases when sudoing
         #work stuff
