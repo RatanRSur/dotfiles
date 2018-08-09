@@ -72,9 +72,6 @@ case $os in
         alias v="xsel -ob"
         export BROWSER="google-chrome-stable %s"
         alias sudo="sudo " # to preserve aliases when sudoing
-        #work stuff
-        [[ "$MMLSPARK_PROFILE" != "" ]] && . "$HOME/.mmlspark_profile"
-        export PATH=/usr/local/mpi/bin:$PATH
         function del {
             mkdir ~/.trash
             mv "$@" ~/.trash
