@@ -14,7 +14,7 @@ Plug 'reedes/vim-lexical'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'sjl/vitality.vim'
 Plug 'wellle/targets.vim'
-Plug 'JuliaLang/julia-vim'
+Plug 'JuliaEditorSupport/julia-vim'
 Plug 'derekwyatt/vim-scala', { 'for' : 'scala'}
 Plug 'ensime/ensime-vim', { 'do': ':UpdateRemotePlugins' }
 Plug 'rust-lang/rust.vim'
