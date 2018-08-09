@@ -8,7 +8,7 @@ ZSH_THEME="dieter"
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-plugins=(git autojump zsh-syntax-highlighting)
+plugins=(git zsh-syntax-highlighting)
 
 # User configuration
 
