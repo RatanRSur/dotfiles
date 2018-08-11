@@ -71,7 +71,7 @@ case $os in
         alias c="xsel -ib"
         alias v="xsel -ob"
         export BROWSER="google-chrome-stable %s"
-        alias sudo="sudo " # to preserve aliases when sudoing
+        alias sudo="sudo -E" # preserves caller env
         function del {
             mkdir ~/.trash
             mv "$@" ~/.trash
