@@ -145,7 +145,7 @@ man() {
         man "$@"
 }
 
-if which tmux >/dev/null 2>&1 && [ -z "$TMUX" ] ; then
+if which tmux >/dev/null 2>&1 && [ -z "$TMUX" ] && [ "$TERM" != "linux" ]; then
     #if not inside a tmux session, and no sessions exist, start a new session
     if tmux list-sessions | grep -v attached > /dev/null; then
         tmux attach
