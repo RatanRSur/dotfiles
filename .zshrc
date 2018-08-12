@@ -105,6 +105,9 @@ alias tmux='tmux -2'
 alias rr='rm -r'
 alias gs='git status'
 alias gl='git log --graph --left-right --format="%Cgreen%h %Cblue%an %Creset%s %Cred%d%Creset"'
+if which hub &>/dev/null; then
+    alias git=hub
+fi
 function grl {
     gl --color "$@" | head -$(($(stty size | cut -d ' ' -f 1) / 2))
 }
