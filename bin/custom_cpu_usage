@@ -1,0 +1,4 @@
+#!/bin/sh
+
+[ -z "$BLOCK_BUTTON" ] || gnome-system-monitor &
+/lib/i3blocks/cpu_usage
