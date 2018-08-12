@@ -6,7 +6,7 @@
 #
 #my custom stuff
 #exec redshift
-exec ~/bin/wallpaper.sh
+exec ~/bin/wallpaper
 exec gnome-terminal
 exec xset r rate 300 30
 exec xinput --set-prop "ETPS/2 Elantech Touchpad" "libinput Natural Scrolling Enabled" 1
