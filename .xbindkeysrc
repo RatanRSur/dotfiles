@@ -75,6 +75,13 @@
 "amixer -c 0 set Master toggle"
     m:0x0 + c:121
 
+"xbacklight -dec 5"
+    m:0x0 + c:232
+    XF86MonBrightnessDown
+
+"xbacklight -inc 5"
+    m:0x0 + c:233
+    XF86MonBrightnessUp
 
 #Press combination of keys or/and click under the window.
 #You can use one of the two lines after "NoCommand"
