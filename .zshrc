@@ -94,8 +94,10 @@ if hash exa 2>/dev/null; then
     }
 fi
 
-BASE16_SHELL=$HOME/.config/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+if [ "$TERM" != "linux" ]; then
+    BASE16_SHELL=$HOME/.config/base16-shell/
+    [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+fi
 #system independent exports
 export FZF_DEFAULT_OPTS='--color 16'
 #other aliases
