@@ -132,11 +132,6 @@ mkcd()
     mkdir -p "$dir" && cd "$dir";
 }
 
-#function for pdflatex compilation with entr
-latexmode()
-{
-    ls "$1" | entr -c pdflatex --halt-on-error "$1"
-}
 
 man() {
     env \
