@@ -90,7 +90,7 @@ if hash exa 2>/dev/null; then
         if [ $(ls -A | wc -l) -gt $(tput lines) ]; then
             grid_option="-G"
         fi
-        exa -l -a $grid_option "$@"
+        exa -g -l -a $grid_option "$@"
     }
 fi
 
