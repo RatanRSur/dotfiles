@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 response=$(curl -H 'Client-ID: emj0nyx9jwie74zmu2xt2gmek4857f' -X GET 'https://api.twitch.tv/helix/streams?user_login=RainoCodes' 2>/dev/null)
 
 if ! which jq > /dev/null; then
