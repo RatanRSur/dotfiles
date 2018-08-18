@@ -203,5 +203,6 @@ client.urgent           #2f343a #900000 #ffffff $base08   $base08
 for_window [class="^.*"] border pixel 2
 gaps inner 8
 
+bindsym $mod+n exec nautilus
 bindsym $mod+c exec google-chrome-stable
 bindsym $mod+Shift+c exec google-chrome-stable --incognito
