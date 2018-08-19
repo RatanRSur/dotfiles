@@ -57,6 +57,9 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec gnome-terminal
 
+bindsym $mod+Tab workspace next
+bindsym $mod+BackSpace workspace back_and_forth
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
