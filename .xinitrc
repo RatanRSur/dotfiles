@@ -38,6 +38,6 @@ pgrep redshift &> /dev/null || redshift -l 40.7128:-74.0060 &> /dev/null &
 wallpaper
 xset r rate 300 30
 xinput --set-prop "ETPS/2 Elantech Touchpad" "libinput Natural Scrolling Enabled" 1
-xinput --set-prop "ETPS/2 Elantech Touchpad" "libinput Accel Speed" 0.9
+xinput --set-prop "ETPS/2 Elantech Touchpad" "libinput Accel Speed" 1.0
 xinput --set-prop 'ETPS/2 Elantech Touchpad' 'libinput Tapping Enabled' 1
 exec i3 -V >> ~/log/i3log-$(date +'%F-%k-%M-%S') 2>&1
