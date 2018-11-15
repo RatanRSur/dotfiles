@@ -73,8 +73,7 @@ case $os in
         export BROWSER="google-chrome-stable %s"
         alias sudo="sudo -E" # preserves caller env
         function del {
-            mkdir ~/.trash
-            mv "$@" ~/.trash
+            trash-put "$@"
         }
         ;;
 esac
