@@ -27,7 +27,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'craigemery/vim-autotag'
 "testing zone
 Plug 'SirVer/ultisnips'
-Plug 'jiangmiao/auto-pairs'
 call plug#end()
 let g:plug_threads = 16
 
