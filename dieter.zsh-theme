@@ -62,11 +62,11 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}"
 
 # elaborate exitcode on the right when >0
-return_code_enabled="%(?.%{$fg[green]%}.%{$fg[red]%})%? ↵%{$reset_color%}"
-return_code_disabled=
-return_code=$return_code_enabled
+return_code_right="%(?.%{$fg[green]%}.%{$fg[red]%})%? ↵%{$reset_color%}"
+return_code_left="%(?.. %{$fg[red]%}%?%{$reset_color%})"
 
-RPS1='${return_code}'
+PROMPT="${return_code_left}$PROMPT"
+#RPS1='${return_code}'
 
 function accept-line-or-clear-warning () {
 	if [[ -z $BUFFER ]]; then
