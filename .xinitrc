@@ -32,11 +32,12 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+xrandr --setprovideroutputsource modesetting NVIDIA-0
 xrandr --auto --dpi 220
 xbindkeys
 pgrep redshift &> /dev/null || redshift -l 40.7128:-74.0060 &> /dev/null &
 wallpaper
-xset r rate 300 30
+xset r rate 225 30
 xinput --set-prop "ETPS/2 Elantech Touchpad" "libinput Natural Scrolling Enabled" 1
 xinput --set-prop "ETPS/2 Elantech Touchpad" "libinput Accel Speed" 1.0
 xinput --set-prop 'ETPS/2 Elantech Touchpad' 'libinput Tapping Enabled' 1
