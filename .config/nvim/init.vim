@@ -31,10 +31,6 @@ Plug 'SirVer/ultisnips'
 call plug#end()
 let g:plug_threads = 16
 
-"for ack.vim
-if executable('ag')
-    let g:ackprg = 'ag --vimgrep'
-endif
 
 set undofile
 set undodir=~/.vim/undodir
@@ -106,7 +102,6 @@ nnoremap <Leader>p :bp<CR>
 " comment and copy
 nnoremap <Leader>cp :let @i=@0<CR>:call NERDComment('n', "yank")<CR>p:let @0=@i<CR>
 
-nnoremap <Leader>g :Ag<CR>
 
 "search for visually selected test
 vnoremap // "iy/<C-R>i<CR>
@@ -259,13 +254,25 @@ map <Leader>% :FZF %:h<CR>
 nnoremap <silent> <Leader>v :call fzf#run({'down': '50%', 'sink': 'botright split' })<CR>
 nnoremap <silent> <Leader>h :call fzf#run({'right': winwidth('.') / 2, 'sink': 'vertical botright split'})<CR>
 
-let $FZF_DEFAULT_COMMAND='ag
-            \ --ignore .git
-            \ --ignore undodir
-            \ --ignore Library
-            \ --ignore Applications
-            \ --ignore macports
-            \ --hidden -f -g "" 2>/dev/null'
+if executable('rg')
+    nnoremap <Leader>g :Rg<CR>
+    let $FZF_DEFAULT_COMMAND='rg
+                \ --glob !.git
+                \ --glob !undodir
+                \ --glob !Library
+                \ --glob !Applications
+                \ --glob !macports
+                \ --hidden -L -l "" 2>/dev/null'
+elseif executable('ag')
+    nnoremap <Leader>g :Ag<CR>
+    let $FZF_DEFAULT_COMMAND='ag
+                \ --ignore .git
+                \ --ignore undodir
+                \ --ignore Library
+                \ --ignore Applications
+                \ --ignore macports
+                \ --hidden -f -g "" 2>/dev/null'
+endif
 
 "jump to last opened position
 autocmd BufReadPost *
