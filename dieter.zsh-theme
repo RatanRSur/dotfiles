@@ -43,9 +43,9 @@ function sexy_git_prompt() {
     fi
 
     if [[ $(git diff-index --name-only HEAD 2>/dev/null) ]]; then
-        ZSH_THEME_GIT_PROMPT_DIRTY=" ✘%{$reset_color%}"
+        ZSH_THEME_GIT_PROMPT_DIRTY=" ※%{$reset_color%}"
     else
-        ZSH_THEME_GIT_PROMPT_DIRTY=" ᝣ%{$reset_color%}"
+        ZSH_THEME_GIT_PROMPT_DIRTY=" ⁘%{$reset_color%}"
     fi
     git_prompt_info
 }
