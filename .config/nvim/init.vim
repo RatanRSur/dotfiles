@@ -25,6 +25,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'craigemery/vim-autotag'
+Plug 'fatih/vim-go'
 "testing zone
 Plug 'SirVer/ultisnips'
 call plug#end()
