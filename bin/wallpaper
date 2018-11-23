@@ -2,5 +2,4 @@
 
 #feh --bg-fill ~/images/arch-linux.png
 
-image=$(find ~/Pictures/black-and-white/ -type f| sort -R | head -1)
-feh --bg-fill "$image"
+feh --bg-fill --randomize ~/Pictures/black-and-white/* &
