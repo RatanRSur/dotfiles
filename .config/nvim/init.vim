@@ -6,6 +6,10 @@ Plug 'prendradjaja/vim-vertigo'
 Plug 'ciaranm/detectindent'
 Plug 'chriskempson/base16-vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'Chiel92/vim-autoformat'
 Plug 'scrooloose/nerdcommenter'
@@ -205,9 +209,6 @@ nnoremap <expr> <c-e> (line('w$') != line('$'))? "\<c-e>" : ''
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
-"make K do something similar to J
-nnoremap K k"kdd"kpkJ
-
 "lexical stuff
 augroup lexical
     autocmd!
@@ -229,6 +230,24 @@ function! s:check_back_space() abort "{{{
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~ '\s'
 endfunction"}}}
+
+let g:LanguageClient_autoStart = 1
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'go': ['~/go/bin/go-langserver'],
+    \ 'julia' : ['julia', '--startup-file=no', '--history-file=no', '-e', '
+    \   using LanguageServer;
+    \   server = LanguageServer.LanguageServerInstance(stdin, stdout, false);
+    \   server.runlinter = true;
+    \   run(server);
+    \   '],
+    \ }
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" Or map each action separately
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+
 
 "fzf
 let g:fzf_colors = { 'fg':      ['fg', 'Normal'],
