@@ -204,7 +204,7 @@ client.urgent           #2f343a #900000 #ffffff $base08   $base08
 #client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 for_window [class="^.*"] border pixel 2
-#gaps inner 6
+gaps inner 6
 
 bindsym $mod+n exec nautilus
 bindsym $mod+c exec google-chrome-stable
