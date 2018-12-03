@@ -101,7 +101,6 @@ fi
 export FZF_DEFAULT_OPTS='--color 16'
 #other aliases
 alias n='nvim'
-alias e='exit'
 alias tmux='tmux -2'
 alias rr='rm -r'
 alias gs='git status'
