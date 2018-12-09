@@ -33,14 +33,16 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 timedatectl set-timezone `curl https://ipapi.co/timezone` &
-xrandr --setprovideroutputsource modesetting NVIDIA-0
-xrandr --auto --dpi 220
+if [[ "$hostname" = "wednesday" ]]; then
+    xrandr --setprovideroutputsource modesetting NVIDIA-0
+    xrandr --auto --dpi 220
+    xinput --set-prop "ETPS/2 Elantech Touchpad" "libinput Natural Scrolling Enabled" 1
+    xinput --set-prop "ETPS/2 Elantech Touchpad" "libinput Accel Speed" 1.0
+    xinput --set-prop 'ETPS/2 Elantech Touchpad' 'libinput Tapping Enabled' 1
+fi
 xbindkeys
 pgrep redshift &> /dev/null || redshift -l 40.7128:-74.0060 &> /dev/null &
 source wallpaper
 xset r rate 225 30
-xinput --set-prop "ETPS/2 Elantech Touchpad" "libinput Natural Scrolling Enabled" 1
-xinput --set-prop "ETPS/2 Elantech Touchpad" "libinput Accel Speed" 1.0
-xinput --set-prop 'ETPS/2 Elantech Touchpad' 'libinput Tapping Enabled' 1
 /usr/lib/notification-daemon-1.0/notification-daemon &
 exec i3 -V >> ~/log/i3log-$(date +'%F-%k-%M-%S') 2>&1
