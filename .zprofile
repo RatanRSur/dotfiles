@@ -3,3 +3,5 @@ if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
     export GDK_SCALE=2
     startx
 fi
+
+export PATH="$HOME/.cargo/bin:$PATH"
