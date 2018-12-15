@@ -243,6 +243,8 @@ let g:LanguageClient_serverCommands = {
     \   '],
     \ }
 
+let g:rustfmt_autosave = 1
+
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 " Or map each action separately
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
