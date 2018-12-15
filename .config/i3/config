@@ -70,8 +70,8 @@ bindsym $mod+Shift+q kill
 # installed.
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -i -b -sf $base07 -sb $base01 -nf $base03 -nb $base00'
 bindsym $mod+d exec rofi -show drun
-bindsym $mod+s exec rofi -show run
-bindsym $mod+w exec rofi -show window -columns 1 -rows 15
+#bindsym $mod+s exec rofi -show run
+#bindsym $mod+w exec rofi -show window -columns 1 -rows 15
 
 # change focus
 bindsym $mod+h focus left
@@ -107,7 +107,7 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-#bindsym $mod+s layout stacking
+bindsym $mod+s layout toggle stacking split
 #bindsym $mod+w layout tabbed
 #bindsym $mod+e layout toggle split
 
@@ -197,13 +197,16 @@ bar {
                         #these don't matter for pixel border mode
                         #vvvvvvvvvvvvvvvvvvvvvv
 # class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 $base01 #ffffff $base09   $base0A
-client.focused_inactive #333333 #5f676a #ffffff $base00   $base00
-client.unfocused        #333333 #222222 #888888 $base00   $base00
-client.urgent           #2f343a #900000 #ffffff $base08   $base08
-#client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.focused          $base00 $base01 $base0A $base09   $base0A
+client.focused_inactive $base00 #5f676a #f8f8f8 $base00   $base00
+client.unfocused        $base00 $base01 $base04 $base00   $base00
+client.urgent           $base08 #900000 #f8f8f8 $base08   $base08
+#client.placeholder     #000000 #0c0c0c #f8f8f8 #000000   #0c0c0c
+
+title_align center
 
 for_window [class="^.*"] border pixel 2
+for_window [class=".*"] title_format "<span font='Consolas 9'> %title</span>"
 gaps inner 6
 
 bindsym $mod+n exec nautilus
