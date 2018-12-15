@@ -81,7 +81,7 @@ set hidden
 set foldopen-=search
 set foldmethod=syntax
 set foldlevel=99
-set foldcolumn=1
+"set foldcolumn=1
 """ autoread
 set autoread
 au FocusGained,BufEnter * :silent! !
