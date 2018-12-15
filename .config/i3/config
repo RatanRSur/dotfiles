@@ -210,5 +210,5 @@ for_window [class=".*"] title_format "<span font='Consolas 9'> %title</span>"
 gaps inner 6
 
 bindsym $mod+n exec nautilus
-bindsym $mod+c exec google-chrome-stable
-bindsym $mod+Shift+c exec google-chrome-stable --incognito
+bindsym $mod+c exec firefox
+bindsym $mod+Shift+c exec firefox --private-window
