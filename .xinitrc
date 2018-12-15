@@ -33,7 +33,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 timedatectl set-timezone `curl https://ipapi.co/timezone` &
-if [[ "$hostname" = "wednesday" ]]; then
+if [[ $(hostname) = "wednesday" ]]; then
     xrandr --setprovideroutputsource modesetting NVIDIA-0
     xrandr --auto --dpi 220
     xinput --set-prop "ETPS/2 Elantech Touchpad" "libinput Natural Scrolling Enabled" 1
