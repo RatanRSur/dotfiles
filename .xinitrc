@@ -36,13 +36,11 @@ timedatectl set-timezone `curl https://ipapi.co/timezone` &
 if [[ $(hostname) = "wednesday" ]]; then
     xrandr --setprovideroutputsource modesetting NVIDIA-0
     xrandr --auto --dpi 220
-    touchpad="ETPS/2 Elantech Touchpad"
-elif [[ $(hostname) = "hubris" ]]; then
-    touchpad="SynPS/2 Synaptics TouchPad"
 fi
+touchpad=$(xinput list --name-only | grep TouchPad)
 xinput --set-prop $touchpad "libinput Natural Scrolling Enabled" 1
 xinput --set-prop $touchpad "libinput Accel Speed" 1.0
-xinput --set-prop $touchpad 'libinput Tapping Enabled' 1
+xinput --set-prop $touchpad "libinput Tapping Enabled" 1
 xbindkeys
 pgrep redshift &> /dev/null || redshift -l 40.7128:-74.0060 &> /dev/null &
 source wallpaper
