@@ -34,7 +34,7 @@ setopt HIST_REDUCE_BLANKS
 
 export PATH=~/bin:$PATH
 
-os=`uname -s`
+os=`uname --kernel-name`
 case $os in
     "Darwin" )
         export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
@@ -51,7 +51,7 @@ case $os in
             brew cask upgrade &&
             nvim -c 'PlugUpdate | q | q' &&
             tldr --update &&
-            julia -e 'Pkg.update(); exit()' &&
+            julia --eval 'Pkg.update(); exit()' &&
             cabal update
         }
         function notify {
@@ -68,10 +68,10 @@ case $os in
         #ls stuff
         export LS_COLORS=$LS_COLORS:'di=0;36:ow=0;37'
         alias l='ls -AlhF'
-        alias c="xsel -ib"
-        alias v="xsel -ob"
+        alias c="xsel --input --clipboard"
+        alias v="xsel -output --clipboard"
         export BROWSER="google-chrome-stable %s"
-        alias sudo="sudo -E" # preserves caller env
+        alias sudo="sudo --preserve-env" # preserves caller env
         function del {
             trash-put "$@"
         }
@@ -86,10 +86,10 @@ if hash exa 2>/dev/null; then
     unalias l
     function l {
         grid_option=""
-        if [ $(ls -A | wc -l) -gt $(tput lines) ]; then
-            grid_option="-G"
+        if [ $(ls --almost-all | wc --lines) -gt $(tput lines) ]; then
+            grid_option="--grid"
         fi
-        exa -g -l -a $grid_option "$@"
+        exa --group --long --all $grid_option "$@"
     }
 fi
 
@@ -127,7 +127,7 @@ restore() {
 mkcd()
 {
     dir="$*";
-    mkdir -p "$dir" && cd "$dir";
+    mkdir --parents "$dir" && cd "$dir";
 }
 
 
