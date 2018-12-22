@@ -70,7 +70,7 @@ case $os in
         alias l='ls -AlhF'
         alias c="xsel --input --clipboard"
         alias v="xsel -output --clipboard"
-        export BROWSER="google-chrome-stable %s"
+        export BROWSER="firefox %s"
         alias sudo="sudo --preserve-env" # preserves caller env
         function del {
             trash-put "$@"
