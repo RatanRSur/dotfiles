@@ -34,7 +34,7 @@ setopt HIST_REDUCE_BLANKS
 
 export PATH=~/bin:$PATH
 
-os=`uname --kernel-name`
+os=`uname -s`
 case $os in
     "Darwin" )
         export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
