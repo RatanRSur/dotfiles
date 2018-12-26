@@ -171,6 +171,10 @@ highlight Error term=reverse cterm=bold ctermfg=Red ctermbg=None guifg=Red guibg
 highlight Folded ctermbg=Black
 highlight GitGutterChange ctermfg=yellow
 highlight GitGutterChangeDelete ctermfg=DarkYellow
+highlight! link SpellBad ErrorMsg
+highlight! link SpellCap ErrorMsg
+highlight! link Identifier Constant
+highlight! Macro ctermfg=Green
 "match Error /\%121v.\+/
 
 "code beautification
