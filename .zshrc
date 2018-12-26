@@ -86,7 +86,7 @@ if hash exa 2>/dev/null; then
     unalias l
     function l {
         grid_option=""
-        if [ $(ls --almost-all | wc --lines) -gt $(tput lines) ]; then
+        if [ $(ls --almost-all "$@" | wc --lines) -gt $(tput lines) ]; then
             grid_option="--grid"
         fi
         exa --group --long --all $grid_option "$@"
