@@ -93,6 +93,10 @@ if hash exa 2>/dev/null; then
     }
 fi
 
+if hash bat 2>/dev/null; then
+    alias cat='bat --theme=base16-tomorrow-night'
+fi
+
 if [ "$TERM" != "linux" ]; then
     BASE16_SHELL=$HOME/.config/base16-shell/
     [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
