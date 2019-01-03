@@ -13,7 +13,7 @@ if [ -z "$TMUX" ]; then #start tmux
 elif [ -e build.sbt ]; then #scala
     tmux rename-window "$(pwd | xargs basename)"
     tmux split-window -h
-    tmux send-keys "sbt" Enter "~test" Enter
+    tmux send-keys "sbt" Enter "~testQuick" Enter
     tmux select-pane -t {left}
     nvim -c "tabnew | FZF src/test"
 elif [ "$1" = "latex" ];then
