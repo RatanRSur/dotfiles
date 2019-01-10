@@ -37,7 +37,7 @@ if [[ $(hostname) = "wednesday" ]]; then
     xrandr --setprovideroutputsource modesetting NVIDIA-0
     xrandr --auto --dpi 220
 fi
-touchpad=$(xinput list --name-only | grep TouchPad)
+touchpad=$(xinput list --name-only | grep -i touchpad)
 xinput --set-prop "$touchpad" "libinput Natural Scrolling Enabled" 1
 xinput --set-prop "$touchpad" "libinput Accel Speed" 1.0
 xinput --set-prop "$touchpad" "libinput Tapping Enabled" 1
