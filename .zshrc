@@ -91,6 +91,9 @@ if hash exa 2>/dev/null; then
         fi
         exa --group --long --all $grid_option "$@"
     }
+    function tree {
+        exa --tree "$@"
+    }
 fi
 
 if hash bat 2>/dev/null; then
