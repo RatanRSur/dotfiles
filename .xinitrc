@@ -32,7 +32,6 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-timedatectl set-timezone `curl https://ipapi.co/timezone` &
 if [[ $(hostname) = "wednesday" ]]; then
     xrandr --setprovideroutputsource modesetting NVIDIA-0
     xrandr --auto --dpi 220
