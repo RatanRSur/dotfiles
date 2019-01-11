@@ -1,0 +1,3 @@
+#!/bin/bash
+tmux rename-window "$(pwd | xargs basename)"
+nvim -c "FZF ."
