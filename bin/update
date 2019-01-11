@@ -1,0 +1,12 @@
+#!/bin/sh
+
+tmux split-window -dh
+tmux send-keys -t {right-of} "flatpak update" Enter
+tmux split-window -dh
+tmux send-keys -t {right-of} "rustup update" Enter
+tmux split-window -dh
+tmux send-keys -t {right-of} "gem update" Enter
+tmux split-window -dh
+tmux send-keys -t {right-of} "tldr --update" Enter
+tmux select-layout tiled
+yay
