@@ -3,8 +3,7 @@
 tmux new-window -n update
 for command in "rustup update" "flatpak update" "gem update" "tldr --update" "sh $ZSH/tools/upgrade.sh"
 do
-    tmux select-layout even-horizontal
-    tmux split-window -d "$command"
+    tmux split-window -d -h "$command; tmux select-layout tiled"
+    tmux select-layout tiled
 done
-tmux select-layout tiled
 tmux send-keys yay Enter
