@@ -5,7 +5,8 @@
 # this file and re-run i3-config-wizard(1).
 #
 #my custom stuff
-exec alacritty
+set $term alacritty
+exec $term
 
 set $base00 #1D1F21
 set $base08 #CC6666
@@ -55,7 +56,7 @@ font pango:Ubuntu 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec $term
 
 bindsym $mod+Tab workspace next
 bindsym $mod+BackSpace workspace back_and_forth
