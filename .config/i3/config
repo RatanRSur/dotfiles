@@ -5,7 +5,7 @@
 # this file and re-run i3-config-wizard(1).
 #
 #my custom stuff
-set $term alacritty
+set $term kitty
 exec $term
 
 set $base00 #1D1F21
