@@ -2,7 +2,7 @@
 
 for command in "rustup update" "flatpak update" "gem update" "tldr --update"
 do
-    tmux split-window -d "$command"
+    tmux split-window -d "$command; tmux select-layout tiled"
 done
 tmux select-layout tiled
 yay
