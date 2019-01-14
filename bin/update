@@ -1,6 +1,6 @@
 #!/bin/sh
 
-tmux new-window -n update
+tmux new-window -c ~ -n update
 for command in "rustup update" "flatpak update" "gem update" "tldr --update" "sh $ZSH/tools/upgrade.sh"
 do
     tmux split-window -d -h "$command; tmux select-layout tiled"
