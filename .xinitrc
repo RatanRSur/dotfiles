@@ -44,6 +44,5 @@ xbindkeys
 pgrep redshift &> /dev/null || redshift -l 40.7128:-74.0060 &> /dev/null &
 source /home/ratan/bin/wallpaper
 xset r rate 225 30
-/usr/lib/notification-daemon-1.0/notification-daemon &
 compton -b
 exec i3 -V >> ~/log/i3log-$(date +'%F-%k-%M-%S') 2>&1
