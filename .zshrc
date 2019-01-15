@@ -96,9 +96,7 @@ if hash exa 2>/dev/null; then
     }
 fi
 
-if hash bat 2>/dev/null; then
-    alias cat='bat --theme=base16-tomorrow-night'
-fi
+alias cat='bat --theme=base16-tomorrow-night'
 
 if [ "$TERM" != "linux" ]; then
     BASE16_SHELL=$HOME/.config/base16-shell/
@@ -112,9 +110,7 @@ alias tmux='tmux -2'
 alias rr='rm -r'
 alias gs='git status'
 alias gl='git log --graph --left-right --format="%Cgreen%h %Cblue%an %Creset%s %Cred%d%Creset"'
-if which hub &>/dev/null; then
-    alias git=hub
-fi
+alias git=hub
 function grl {
     gl --color "$@" | head -$(($(stty size | cut -d ' ' -f 1) / 2))
 }
