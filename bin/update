@@ -1,5 +1,11 @@
 #!/bin/sh
 
+if ! ping -q -w 1 -c 1 `ip r | grep default | cut -d ' ' -f 3` > /dev/null
+then
+    echo "Not connected to the internet"
+    exit 1
+fi
+
 tmux new-window -c ~ -n update
 tmux send-keys yay Enter
 for command in "rustup update" "flatpak update" "gem update" "tldr --update" "sh $ZSH/tools/upgrade.sh" "nvim +PlugUpdate +PlugUpgrade +q +q"
