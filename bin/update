@@ -1,9 +1,9 @@
 #!/bin/sh
 
 tmux new-window -c ~ -n update
+tmux send-keys yay Enter
 for command in "rustup update" "flatpak update" "gem update" "tldr --update" "sh $ZSH/tools/upgrade.sh" "nvim +PlugUpdate +PlugUpgrade +q +q"
 do
     tmux split-window -d -h "$command; tmux select-layout tiled"
     tmux select-layout tiled
 done
-tmux send-keys yay Enter
