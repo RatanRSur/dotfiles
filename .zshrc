@@ -147,13 +147,10 @@ man() {
 }
 
 if which tmux &>/dev/null && [ -z "$TMUX" ] && [ "$TERM" != "linux" ]; then
-    #if not inside a tmux session, and no sessions exist, start a new session
-    if tmux list-sessions | grep -v attached > /dev/null; then
-        tmux attach dev || tmux attach
-    elif tmux list-sessions | grep dev > /dev/null; then
-        tmux new-session
-    else
+    if ! tmux list-sessions 2> /dev/null | grep dev &> /dev/null; then
         dev
+    elif tmux list-sessions | grep -v attached &> /dev/null; then
+        tmux attach dev || tmux attach
     fi
 fi
 
