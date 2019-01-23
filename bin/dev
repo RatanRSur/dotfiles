@@ -5,10 +5,8 @@ if [ -z "$TMUX" ]; then #start tmux
     tmux send-keys "cd dotfiles; nvim .config/nvim/init.vim" Enter
     tmux split-window -h -c "dotfiles"
     tmux send-keys "git status" Enter
-    tmux send-keys "cat TODO.md" Enter
     tmux select-pane -t {left}
     tmux new-window -n stf -c "stf"
-    tmux send-keys "l" Enter
     tmux -2 attach-session -d
 elif [ -e build.sbt ]; then #scala
     tmux rename-window "$(pwd | xargs basename)"
