@@ -152,5 +152,12 @@ if which tmux &>/dev/null && [ -z "$TMUX" ] && [ "$TERM" != "linux" ]; then
     elif tmux list-sessions | grep -v attached &> /dev/null; then
         tmux attach dev || tmux attach
     fi
+else
+    for exe in $(tldr --list | sd ", " "\n" | shuf | tr "\n" " "); do
+        which $exe &> /dev/null || continue
+        echo "$exe"
+        tldr "$exe"
+        break
+    done
 fi
 
