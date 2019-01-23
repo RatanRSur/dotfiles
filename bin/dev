@@ -18,16 +18,14 @@ elif [ "$1" = "latex" ];then
     tex_file=$(ls *.tex | head -1)
     pdf_file=$(echo "$tex_file" | sed 's/\.tex$/\.pdf/')
 
-    mupdf "$pdf_file" &
-    mupdf_pid=$!
+    zathura "$pdf_file" &
+    pdf_pid=$!
 
     tmux rename-window "$(echo $pdf_file | sed 's/\.pdf$//')"
     tmux split-window -v -d -p 10
-    tmux send-keys -t {bottom} "ls \"$tex_file\" | entr -cps \"pdflatex --halt-on-error \\\"$tex_file\\\" && kill -HUP $mupdf_pid\"" Enter
+    tmux send-keys -t {bottom} "ls \"$tex_file\" | entr -cps \"pdflatex --halt-on-error \\\"$tex_file\\\"\"" Enter
 
     nvim "$tex_file"
-
-    kill -15 $mupdf_pid &>/dev/null
 else
     tmux rename-window "$(pwd | xargs basename)"
     tmux split-window -h -d
