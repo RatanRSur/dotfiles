@@ -202,7 +202,7 @@ bar {
 client.focused          $base00 $base01 $base0A $base09   $base0A
 client.focused_inactive $base00 #5f676a #f8f8f8 $base00   $base00
 client.unfocused        $base00 $base01 $base04 $base00   $base00
-client.urgent           $base08 #900000 #f8f8f8 $base08   $base08
+client.urgent           $base08 $base08 #f8f8f8 $base08   $base08
 #client.placeholder     #000000 #0c0c0c #f8f8f8 #000000   #0c0c0c
 
 title_align center
