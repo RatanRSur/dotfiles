@@ -109,14 +109,6 @@ nnoremap <Leader>cp :let @i=@0<CR>:call NERDComment('n', "yank")<CR>p:let @0=@i<
 "search for visually selected test
 vnoremap // "iy/<C-R>i<CR>
 
-"turn off vim magic search
-nnoremap / /\v
-vnoremap / /\v
-cnoremap %s/ %smagic/
-cnoremap \>s/ \>smagic/
-nnoremap :g/ :g/\v
-nnoremap :g// :g//
-
 "stop that stupid window from popping up
 map q: :q
 
