@@ -22,3 +22,16 @@
 	conflictstyle = diff3
 [rerere]
 	enabled = true
+[color]
+	ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 237
+	newNormal = green bold
+	newHighlight = green bold 237
+[color "diff"]
+	meta = yellow
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
