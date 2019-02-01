@@ -212,7 +212,8 @@ smart_borders on
 for_window [class=".*"] title_format "<span font='Consolas 9'> %title</span>"
 #gaps inner 3
 
-bindsym $mod+u exec emoji
+bindsym $mod+c exec bin/lock
+bindsym $mod+u exec bin/emoji
 bindsym $mod+n exec $term -e zsh -ci ranger
 bindsym $mod+b exec firefox
 bindsym $mod+Shift+b exec firefox --private-window
