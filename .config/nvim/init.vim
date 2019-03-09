@@ -248,6 +248,7 @@ let g:LanguageClient_serverCommands = {
     \ }
 
 let g:rustfmt_autosave = 1
+let g:LanguageClient_useVirtualText = 0
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 " Or map each action separately
