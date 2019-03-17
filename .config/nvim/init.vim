@@ -2,6 +2,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-eunuch'
+Plug 'airblade/vim-gitgutter'
 Plug 'prendradjaja/vim-vertigo'
 Plug 'ciaranm/detectindent'
 Plug 'chriskempson/base16-vim'
