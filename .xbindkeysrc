@@ -68,9 +68,9 @@
 ##################################
 # End of default xbindkeys configuration #
 ##################################
-"amixer -c 0 set Master 5+"
+"amixer -D pulse set Master 5%+"
     m:0x0 + c:123
-"amixer -c 0 set Master 5-"
+"amixer -D pulse set Master 5%-"
     m:0x0 + c:122
 "amixer -D pulse set Master Playback Switch toggle"
     m:0x0 + c:121
