@@ -304,6 +304,7 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   )
+  (setq rust-format-on-save t))
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
