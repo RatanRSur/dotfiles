@@ -304,7 +304,8 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  )
+  (push '("melpa-stable" . "stable.melpa.org/packages/") configuration-layer--elpa-archives)
+  (push '("ensime" . "melpa-stable") package-pinned-packages)
   (setq rust-format-on-save t))
 
 (defun dotspacemacs/user-config ()
@@ -319,6 +320,10 @@ you should place your code here."
   (global-set-key (kbd "C-j") 'evil-window-down)
   (global-set-key (kbd "C-k") 'evil-window-up)
   (global-set-key (kbd "C-l") 'evil-window-right)
+
+  ;; Enter as :nohl
+  ;; (define-key evil-normal-state-map (kbd "RET") (evil-ex-call-command ":nohl"))
+
   (face-remap-set-base 'linum-relative-current-face '('linum))
   )
 
