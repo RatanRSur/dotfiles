@@ -30,6 +30,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'craigemery/vim-autotag'
 Plug 'fatih/vim-go'
+Plug 'tomlion/vim-solidity', { 'for' : 'sol' }
 "testing zone
 Plug 'SirVer/ultisnips'
 call plug#end()
