@@ -15,5 +15,12 @@ if ! which $bin; then
 fi
 $bin "$tmpbg" "$tmpbg"
 
-i3lock -u -i /tmp/screen.png
+muted=$(amixer get Master | rg off)
+
+amixer set Master mute
+i3lock -n -u -i /tmp/screen.png
+
+if [ -z "$muted" ]; then
+    amixer set Master unmute
+fi
 rm "$tmpbg"
