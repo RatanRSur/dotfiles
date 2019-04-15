@@ -31,6 +31,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'craigemery/vim-autotag'
 Plug 'fatih/vim-go'
 Plug 'tomlion/vim-solidity', { 'for' : 'sol' }
+Plug 'ianding1/leetcode.vim'
 "testing zone
 Plug 'SirVer/ultisnips'
 call plug#end()
@@ -301,6 +302,8 @@ elseif executable('ag')
                 \ --ignore macports
                 \ --hidden -f -g "" 2>/dev/null'
 endif
+
+let g:leetcode_username='ratan.r.sur@gmail.com'
 
 "jump to last opened position
 autocmd BufReadPost *
