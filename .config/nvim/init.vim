@@ -242,6 +242,7 @@ let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
     \ 'go': ['~/go/bin/go-langserver'],
+    \ 'java': ['/usr/bin/jdtls'],
     \ 'julia' : ['julia', '--startup-file=no', '--history-file=no', '-e', '
     \   using LanguageServer;
     \   server = LanguageServer.LanguageServerInstance(stdin, stdout, false);
