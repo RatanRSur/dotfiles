@@ -7,7 +7,7 @@
 #my custom stuff
 set $term kitty
 exec $term
-exec --no-startup-id i3-msg 'workspace 10; exec chromium; workspace 1'
+exec --no-startup-id i3-msg 'workspace 10; exec google-chrome-stable; workspace 1'
 
 set $base00 #1D1F21
 set $base08 #CC6666
@@ -215,6 +215,6 @@ for_window [class=".*"] title_format "<span font='Consolas 9'> %title</span>"
 bindsym $mod+c exec bin/lock
 bindsym $mod+u exec bin/emoji
 bindsym $mod+n exec $term -e zsh -ci ranger
-bindsym $mod+b exec chromium
+bindsym $mod+b exec google-chrome-stable
 bindsym $mod+e exec emacs
-bindsym $mod+Shift+b exec chromium --incognito
+bindsym $mod+Shift+b exec google-chrome-stable --incognito
