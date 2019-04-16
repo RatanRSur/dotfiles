@@ -14,12 +14,11 @@ elif [ -e build.sbt ]; then #scala
     tmux send-keys "sbt" Enter "~testQuick" Enter
     tmux select-pane -t {left}
     nvim -c "tabnew | FZF src/test"
-elif [ "$1" = "latex" ];then
+elif [ -n "$(ls *.tex)" ];then
     tex_file=$(ls *.tex | head -1)
     pdf_file=$(echo "$tex_file" | sed 's/\.tex$/\.pdf/')
 
     zathura "$pdf_file" &
-    pdf_pid=$!
 
     tmux rename-window "$(echo $pdf_file | sed 's/\.pdf$//')"
     tmux split-window -v -d -p 10
