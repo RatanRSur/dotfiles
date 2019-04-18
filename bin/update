@@ -8,7 +8,7 @@ fi
 
 tmux new-window -c ~ -n update
 tmux send-keys yay Enter
-for command in "nvim +PlugUpdate +PlugUpgrade +q +q" "rustup update" "flatpak update -y" "gem update" "tldr --update" "sh $ZSH/tools/upgrade.sh"
+for command in "nvim +PlugUpdate +PlugUpgrade +q +q" "rustup update" "flatpak update -y" "gem update" "tldr --update" "sh $ZSH/tools/upgrade.sh" "docker images | tail -n +2 | cut -d ' ' -f 1 | xargs -n 1 docker pull"
 do
     tmux split-window -d -h "$command; tmux select-layout tiled"
     tmux select-layout tiled
