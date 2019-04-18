@@ -164,12 +164,12 @@ if which tmux &>/dev/null && [ -z "$TMUX" ] && [ "$TERM" != "linux" ]; then
             tmux attach control || tmux attach
         fi
     fi
-else
-    for exe in $(tldr --list | sd ", " "\n" | shuf | tr "\n" " "); do
-        which $exe &> /dev/null || continue
-        echo "$exe"
-        tldr "$exe"
-        break
-    done
 fi
+
+for exe in $(tldr --list | sd ", " "\n" | shuf | tr "\n" " "); do
+    which $exe &> /dev/null || continue
+    echo "$exe"
+    tldr "$exe"
+    break
+done
 
