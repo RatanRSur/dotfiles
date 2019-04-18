@@ -148,8 +148,16 @@ man() {
 }
 
 if which tmux &>/dev/null && [ -z "$TMUX" ] && [ "$TERM" != "linux" ]; then
-    if ! tmux list-sessions 2> /dev/null | grep dev &> /dev/null; then
-        dev
+    # start control session
+    if ! tmux list-sessions 2> /dev/null | grep control &> /dev/null; then
+        cd ~
+        tmux new-session -d -n "dotfiles" -s control
+        tmux send-keys "cd dotfiles; nvim .config/nvim/init.vim" Enter
+        tmux split-window -h -c "dotfiles"
+        tmux send-keys "git status" Enter
+        tmux select-pane -t {left}
+        tmux new-window -n stf -c "stf"
+        tmux -2 attach-session -d
     elif tmux list-sessions | grep -v attached &> /dev/null; then
         tmux attach dev || tmux attach
     fi
