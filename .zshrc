@@ -9,7 +9,7 @@ ZSH_THEME="dieter"
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-plugins=(git zsh-syntax-highlighting)
+plugins=(git)
 
 # User configuration
 
