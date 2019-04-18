@@ -159,7 +159,10 @@ if which tmux &>/dev/null && [ -z "$TMUX" ] && [ "$TERM" != "linux" ]; then
         tmux new-window -n stf -c "stf"
         tmux -2 attach-session -d
     elif tmux list-sessions | grep -v attached &> /dev/null; then
-        tmux attach dev || tmux attach
+        echo "Attach to unattached session? [y/N]"
+        if read -q; then
+            tmux attach control || tmux attach
+        fi
     fi
 else
     for exe in $(tldr --list | sd ", " "\n" | shuf | tr "\n" " "); do
