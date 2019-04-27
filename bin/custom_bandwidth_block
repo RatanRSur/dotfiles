@@ -69,6 +69,13 @@ tx_rate=$(( $tx_diff / $time_diff ))
 # shift by 10 bytes to get KiB/s. If the value is larger than
 # 1024^2 = 1048576, then display MiB/s instead
 
+echo -n "$(nmcli -g NAME connection show --active) "
+
+connectivity=$(nmcli n connectivity)
+if [ "$connectivity" != "full" ]; then
+    echo -n "($connectivity) "
+fi
+
 # outgoing
 echo -n "▲ "
 tx_kib=$(( $tx_rate >> 10 ))
