@@ -277,7 +277,7 @@ map <Leader>e :FZF<CR>
 map <Leader>f :FZF 
 map <Leader>b :Buffers<CR>
 map <Leader>t :Tags<CR>
-set tags=./tags,./.tags,.tags,tag
+set tags=./tags,./.tags,.tags,tag,tags
 map <Leader>l :Lines<CR>
 map <Leader>` :FZF ~<CR>
 map <Leader>% :FZF %:h<CR>
