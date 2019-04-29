@@ -26,8 +26,8 @@ fi
 # Issue #36 compliant.
 if ! [ -e "/sys/class/net/${INTERFACE}/operstate" ] || ! [ "`cat /sys/class/net/${INTERFACE}/operstate`" = "up" ]
 then
-    echo "$INTERFACE down"
-    echo "$INTERFACE down"
+    echo "$INTERFACE ▼"
+    echo "$INTERFACE ▼"
     echo "#AB4642"
     exit 0
 fi
