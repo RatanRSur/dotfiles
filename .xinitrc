@@ -42,8 +42,7 @@ xinput --set-prop "$touchpad" "libinput Accel Speed" 1.0
 xinput --set-prop "$touchpad" "libinput Tapping Enabled" 1
 xbindkeys
 pgrep redshift &> /dev/null || redshift -l 40.7128:-74.0060 &> /dev/null &
-source /home/ratan/bin/wallpaper
 xset r rate 225 30
 compton -b
-autorandr --change
+autorandr --change # this should imply wallpaper setting from autorandr postswitch
 exec i3 -V >> ~/log/i3log-$(date +'%F-%k-%M-%S') 2>&1
