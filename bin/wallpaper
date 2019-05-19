@@ -1,5 +1,3 @@
 #!/bin/sh
 
-#feh --bg-fill ~/images/arch-linux.png
-
-feh --bg-fill --randomize ~/Pictures/black-and-white/* &
+feh --bg-fill --randomize ~/Pictures/current-wallpapers/* &
