@@ -6,10 +6,16 @@ then
     exit 1
 fi
 
+update_layout="tmux select-layout -t update tiled"
 tmux new-window -c ~ -n update
 tmux send-keys yay Enter
-for command in "nvim +PlugUpdate +PlugUpgrade +q +q" "rustup update" "flatpak update -y" "gem update" "tldr --update" "sh $ZSH/tools/upgrade.sh" "docker images | tail -n +2 | cut -d ' ' -f 1 | xargs -n 1 docker pull"
+for command in "nvim +PlugUpdate +PlugUpgrade +q +q" "rustup update" "flatpak update -y" "gem update" "tldr --update" "sh $ZSH/tools/upgrade.sh" 
 do
-    tmux split-window -d "$command; tmux select-layout even-vertical"
-    tmux select-layout even-vertical
+    tmux split-window -d "$command; $update_layout"
+    $update_layout
+done
+# do docker updates all in separate windows
+for image in `docker images | tail -n +2 | cut -d ' ' -f 1`; do
+    tmux split-window -d "docker pull $image; $update_layout"
+    $update_layout
 done
