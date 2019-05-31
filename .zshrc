@@ -34,6 +34,7 @@ setopt HIST_REDUCE_BLANKS
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 
 export PATH=~/bin:$PATH
+export PATH=~/.cargo/bin:$PATH
 
 os=`uname -s`
 case $os in
