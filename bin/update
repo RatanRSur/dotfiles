@@ -14,7 +14,7 @@ do
     $update_layout
 done
 # do docker updates all in separate windows
-for image in `docker images | tail -n +2 | cut -d ' ' -f 1`; do
+for image in `docker images | tail -n +2 | cut -d ' ' -f 1 | sort | uniq | rg -v "<none>"`; do
     tmux split-window -d "docker pull $image; $update_layout"
     $update_layout
 done
