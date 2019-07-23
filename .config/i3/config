@@ -198,5 +198,5 @@ bindsym $mod+c exec bin/lock
 bindsym $mod+u exec bin/emoji
 bindsym $mod+n exec $term -e zsh -ci ranger
 bindsym $mod+b exec google-chrome-stable
-bindsym $mod+e exec emacs
+bindsym $mod+i exec idea
 bindsym $mod+Shift+b exec google-chrome-stable --incognito
