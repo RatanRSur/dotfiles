@@ -2,7 +2,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 DISABLE_UPDATE_PROMPT=true
-ZSH_THEME="dieter"
+ZSH_THEME="ratan"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
