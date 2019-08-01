@@ -1,16 +1,3 @@
-# the idea of this theme is to contain a lot of info in a small string, by
-# compressing some parts and colorcoding, which bring useful visual cues,
-# while limiting the amount of colors and such to keep it easy on the eyes.
-# When a command exited >0, the timestamp will be in red and the exit code
-# will be on the right edge.
-# The exit code visual cues will only display once.
-# (i.e. they will be reset, even if you hit enter a few times on empty command prompts)
-
-typeset -A host_repr
-
-# translate hostnames into shortened, colorcoded strings
-host_repr=('dieter-ws-a7n8x-arch' "%{$fg_bold[green]%}ws" 'dieter-p4sci-arch' "%{$fg_bold[blue]%}p4")
-
 # local time, color coded by last return code
 time_enabled="%(?.%{$fg[green]%}.%{$fg[red]%})%*%{$reset_color%}"
 time_disabled="%{$fg[green]%}%*%{$reset_color%}"
@@ -52,7 +39,7 @@ function sexy_git_prompt() {
 
 PROMPT=' ${pwd} $(sexy_git_prompt)'
 if [ "$SSH_CONNECTION" ]; then
-    PROMPT="${user}@${host}$PROMPT"
+    PROMPT="${user}@$HOST$PROMPT"
 fi
 
 # i would prefer 1 icon that shows the "most drastic" deviation from HEAD,
