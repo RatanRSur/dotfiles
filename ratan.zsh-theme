@@ -42,6 +42,9 @@ if [ "$SSH_CONNECTION" ]; then
     PROMPT="${user}@$HOST$PROMPT"
 fi
 
+# are there other jobs?
+PROMPT="%1(j. 🔨.)$PROMPT"
+
 # i would prefer 1 icon that shows the "most drastic" deviation from HEAD,
 # but lets see how this works out
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}"
