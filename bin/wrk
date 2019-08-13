@@ -1,3 +1,6 @@
 #!/bin/bash
 tmux select-window -t pantheon || tmux new-window -n pantheon -c ~/wrk/pantheon
 tmux send-keys "git status" Enter
+pgrep idea || nohup idea &
+pgrep slack || nohup com.slack.Slack &
+pgrep zoom || nohup zoom &
