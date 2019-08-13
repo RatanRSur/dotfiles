@@ -3,6 +3,9 @@ map d scroll half-down
 map D toggle_page_mode
 map p print
 
+unmap q
+
+set selection-clipboard clipboard
 
 set completion-bg "#282a2e"
 set completion-fg "#b5bd68"
