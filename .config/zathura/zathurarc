@@ -35,3 +35,7 @@ set index-fg "#e0e0e0"
 set index-bg "#1d1f21"
 set index-active-fg "#1d1f21"
 set index-active-bg "#b5bd68"
+
+set recolor true
+set recolor-darkcolor "#e0e0e0"
+set recolor-lightcolor "#1d1f21"
