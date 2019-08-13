@@ -68,9 +68,9 @@
 ##################################
 # End of default xbindkeys configuration #
 ##################################
-"amixer -D pulse set Master 1%+ && pkill -SIGRTMIN+10 i3blocks"
+"amixer -D pulse set Master 2%+ && pkill -SIGRTMIN+10 i3blocks"
     m:0x0 + c:123
-"amixer -D pulse set Master 1%- && pkill -SIGRTMIN+10 i3blocks"
+"amixer -D pulse set Master 2%- && pkill -SIGRTMIN+10 i3blocks"
     m:0x0 + c:122
 "amixer -D pulse set Master Playback Switch toggle && pkill -SIGRTMIN+10 i3blocks"
     m:0x0 + c:121
