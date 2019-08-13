@@ -1,3 +1,3 @@
 #!/bin/bash
-tmux new-window -n pantheon -c ~/wrk/pantheon
+tmux select-window -t pantheon || tmux new-window -n pantheon -c ~/wrk/pantheon
 tmux send-keys "git status" Enter
