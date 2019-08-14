@@ -43,6 +43,6 @@ xinput --set-prop "$touchpad" "libinput Tapping Enabled" 1
 xbindkeys
 pgrep redshift &> /dev/null || redshift -l 40.7128:-74.0060 &> /dev/null &
 xset r rate 225 30
-compton -b
+#compton -b #messes with xsetroot, so disable for now
 autorandr --change # this should imply wallpaper setting from autorandr postswitch
 exec i3 -V >> ~/log/i3log-$(date +'%F-%k-%M-%S') 2>&1
