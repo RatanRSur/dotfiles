@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 freq=$(lscpu | grep "CPU MHz" | cut -d ' ' -f 15 | sed 's/\.[0-9]*$//')
 unit="MHz"
 

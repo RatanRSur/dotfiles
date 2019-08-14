@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 for term in $@; do
     search="$search%20$term"

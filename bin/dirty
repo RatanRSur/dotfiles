@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 dirty_files=$(git --no-pager diff --name-only)
 if [ -z "$dirty_files" -o ! -d .git ]; then

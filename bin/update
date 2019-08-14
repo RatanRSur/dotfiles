@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 if ! ping -q -w 1 -c 1 www.google.com &> /dev/null
 then
     echo "Not connected to the internet"

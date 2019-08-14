@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 function main {
     selection=$(echo "$emoji_list" | rofi -dmenu -p emoji -l 5)
