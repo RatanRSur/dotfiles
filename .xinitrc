@@ -38,7 +38,7 @@ if [[ $(hostname) = "wednesday" ]]; then
 fi
 touchpad=$(xinput list --name-only | grep -i touchpad)
 xinput --set-prop "$touchpad" "libinput Natural Scrolling Enabled" 1
-xinput --set-prop "$touchpad" "libinput Accel Speed" 1.0
+xinput --set-prop "$touchpad" "libinput Accel Speed" 0.8
 xinput --set-prop "$touchpad" "libinput Tapping Enabled" 1
 xbindkeys
 pgrep redshift &> /dev/null || redshift -l 40.7128:-74.0060 &> /dev/null &
