@@ -1,4 +1,14 @@
 #!/bin/bash
+
+if [ ! -d ~/wrk/pantheon ]; then
+    mkdir -p ~/wrk
+    hub clone PegaSysEng/pantheon ~/wrk/pantheon
+fi
+
+if ! flatpak list | rg Slack > /dev/null ; then
+    flatpak install com.slack.Slack
+fi
+
 tmux select-window -t pantheon || tmux new-window -n pantheon -c ~/wrk/pantheon
 tmux send-keys "git status" Enter
 pgrep idea || nohup idea >/dev/null 2>&1 &
