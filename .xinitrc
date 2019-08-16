@@ -45,4 +45,5 @@ pgrep redshift &> /dev/null || redshift -l 40.7128:-74.0060 &> /dev/null &
 xset r rate 225 30
 #compton -b #messes with xsetroot, so disable for now
 autorandr --change # this should imply wallpaper setting from autorandr postswitch
+xsetroot -solid "#1d1f21"
 exec i3 -V >> ~/log/i3log-$(date +'%F-%k-%M-%S') 2>&1
