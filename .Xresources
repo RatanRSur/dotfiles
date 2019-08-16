@@ -7,13 +7,13 @@ rofi.lines:                          1
 ! "Number of columns" Set from: Default
 rofi.columns:                        6
 ! "Font to use" Set from: Default
-rofi.font:                           Consolas 30
+rofi.font:                           Consolas 14
 ! "Border width" Set from: Default
 rofi.bw:                             0
 ! "Location on screen" Set from: Default
 rofi.location:                       1
 ! "Padding" Set from: Default
-rofi.padding:                        50
+rofi.padding:                        10
 ! "Y-offset relative to location" Set from: Default
 ! rofi.yoffset:                        0
 ! "X-offset relative to location" Set from: Default
