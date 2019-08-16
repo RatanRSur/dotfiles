@@ -1,0 +1,120 @@
+#!/bin/bash
+
+set -e
+
+if [ "$(whoami)" = "root" ]; then
+    echo "Enter hostname:"
+    read hostname
+
+    echo "EFI partition:"
+    read efi_partition
+
+    ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
+    hwclock --systohc
+    echo "en_US.UTF-8 UTF8" >> /etc/locale.gen
+    locale-gen
+
+    echo "$hostname" > /etc/hostname
+    echo -e "127.0.0.1\tlocalhost" >> /etc/hosts
+    echo -e "::1\t\tlocalhost" >> /etc/hosts
+    echo -e "127.0.1.1\t$hostname.localdomain\t$hostname" >> /etc/hosts
+
+    pacman -S networkmanager
+    sudo systemctl enable NetworkManager
+
+    echo "About to ask you for root password, get ready!"
+    read
+    passwd
+
+    pacman -S grub efibootmgr
+    mkdir /efi
+    sudo mount "$efi_partition" /efi
+    grub-install --target=x86_64-efi --efi-directory=/efi/ --bootloader-id=GRUB
+    grub-mkconfig -o /boot/grub/grub.cfg
+
+    useradd -m ratan
+    echo "About to ask you for ratan password, get ready!"
+    read
+    passwd ratan
+
+    echo "Uncomment line allowing wheel users sudo"
+    read
+    visudo
+    gpasswd -a ratan wheel
+    exit
+else
+    pacman -S git
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si
+    cd ..
+    git clone https://www.github.com/RatanRSur/dotfiles.git
+    cd dotfiles
+    nvim pkglist.txt
+    yay -S - < pkglist.txt
+    chsh -s /usr/bin/zsh
+    sudo ln -rs etc/pacman.conf /etc/pacman.conf
+    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    sh -c "$(wget -O- https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    ln -rs ~/dotfiles/ratan.zsh-theme ~/.oh-my-zsh/custom/themes
+    ln -rsf ~/dotfiles/.zshrc ~
+    ln -rs ~/dotfiles/.tmux.conf ~
+    ln -rs  ~/.config/kitty/kitty.conf
+    sudo pip install sexpdata websocket-client
+    git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
+    base16_tomorrow-night
+gs
+gd
+n
+man i3blocks
+n
+xmodmap -pke
+xmodmap -pke | rg Caps
+xmodmap -pke | rg -i caps
+xmodmap -pke
+xmodmap -pke | rg -i lock
+xbindkeys -k
+xinput --set-prop "$touchpad" "libinput Accel Speed" 0.8\
+
+./setup.bash
+mv setup.bash setup
+n
+chmod +x setup
+./setup
+pkill xinit
+startx
+n
+base16_tomorrow_night
+base16_tomorrow-night
+n
+cat ~/.bash_history
+sudo cat /root/.bash_history
+sudo bat /root/.bash_history
+sudo cat /root/.bash_history > c
+l
+rm c
+sudo cat /root/.bash_history | c
+cat /etc/locale.gen
+man echo
+man rad
+man read
+read foo
+echo $foo
+man echo
+read
+man read
+cat /etc/sudoers
+sudo cat /etc/sudoers
+cat ~/.bash_history
+whoami
+man makepkg
+cat ~/.zsh_history | c
+<Paste>
+logout
+
+##fonts
+
+sudo pacman -S ttf-dejavu ttf-liberation noto-fonts
+sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d
+sudo ln -s /etc/fonts/conf.avail/10-sub-pixel-rgb.conf /etc/fonts/conf.d
+sudo ln -s /etc/fonts/conf.avail/11-lcdfilter-default.conf /etc/fonts/conf.d
