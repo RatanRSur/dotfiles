@@ -50,10 +50,10 @@ bindsym $mod+d exec rofi -show drun
 bindsym $mod+Escape exec bin/lock
 bindsym $mod+u exec bin/emoji
 bindsym $mod+n exec $term -e zsh -ci ranger
-bindsym $mod+b exec google-chrome-stable
+bindsym $mod+b exec brave
 bindsym $mod+i [class="jetbrains-idea-ce"] focus
 bindsym --release $mod+z exec zathura && xdotool key o
-bindsym $mod+Shift+b exec google-chrome-stable --incognito
+bindsym $mod+Shift+b exec brave --incognito
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
