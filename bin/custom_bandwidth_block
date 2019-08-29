@@ -70,7 +70,7 @@ tx_rate=$(( $tx_diff / $time_diff ))
 # 1024^2 = 1048576, then display MiB/s instead
 
 iface=$(ip route | awk '/^default/ { print $5 ; exit }')
-echo -n "$(nmcli d show $iface | grep CONNECTION | awk '{print $2}') "
+echo -n "$(nmcli d show $iface | grep CONNECTION | sed -re 's,\s+, ,g' | cut -d ' ' -f 2-) "
 
 connectivity=$(nmcli n connectivity)
 if [ "$connectivity" != "full" ]; then
