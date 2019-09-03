@@ -1,0 +1,11 @@
+#!/bin/bash
+case "$2" in
+    up)
+        before_timezone=$(timedatectl show --property=Timezone)
+        timedatectl set-timezone "$(curl --fail https://ipapi.co/timezone)"
+        after_timezone=$(timedatectl show --property=Timezone)
+        if [ "$before_timezone" != "$after_timezone" ]; then
+	    /home/ratan/bin/reflector-upgrade
+	fi
+    ;;
+esac
