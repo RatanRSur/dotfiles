@@ -1,4 +1,4 @@
 #!/bin/bash
 
 #feh --bg-fill --randomize ~/Pictures/current-wallpapers/* &
-xsetroot -solid "#1d1f21"
+hsetroot -solid "#1d1f21"
