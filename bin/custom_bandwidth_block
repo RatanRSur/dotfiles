@@ -70,30 +70,32 @@ tx_rate=$(( $tx_diff / $time_diff ))
 # 1024^2 = 1048576, then display MiB/s instead
 
 iface=$(ip route | awk '/^default/ { print $5 ; exit }')
-echo -n "$(nmcli d show $iface | grep CONNECTION | sed -re 's,\s+, ,g' | cut -d ' ' -f 2-) "
+full_text="$(nmcli d show $iface | grep CONNECTION | sed -re 's,\s+, ,g' | cut -d ' ' -f 2-) "
 
 connectivity=$(nmcli n connectivity)
 if [ "$connectivity" != "full" ]; then
-    echo -n "($connectivity) "
+    full_text="$full_text($connectivity) "
 fi
 
 # outgoing
-echo -n "▲ "
+full_text="$full_text▲ "
 tx_kib=$(( $tx_rate >> 10 ))
 if [[ "$tx_rate" -gt 1048576 ]]; then
-  printf '%sM' "`echo "scale=1; $tx_kib / 1024" | bc`"
+    full_text="$full_text$(printf '%sM' "`echo "scale=1; $tx_kib / 1024" | bc`")"
 else
-  echo -n "${tx_kib}K"
+  full_text="$full_text${tx_kib}K"
 fi
 
-echo -n " "
+full_text="$full_text "
 
 
 # incoming
-echo -n "▼ "
+full_text="$full_text▼ "
 rx_kib=$(( $rx_rate >> 10 ))
 if [[ "$rx_rate" -gt 1048576 ]]; then
-  printf '%sM' "`echo "scale=1; $rx_kib / 1024" | bc`"
+    full_text="$full_text$(printf '%sM' "`echo "scale=1; $rx_kib / 1024" | bc`")"
 else
-  echo -n "${rx_kib}K"
+  full_text="$full_text${rx_kib}K"
 fi
+echo $full_text
+echo $full_text
