@@ -251,6 +251,10 @@ let g:LanguageClient_serverCommands = {
     \   '],
     \ }
 
+autocmd BufWrite *.hs :Autoformat
+" Don't automatically indent on save, since vim's autoindent for haskell is buggy
+autocmd FileType haskell let b:autoformat_autoindent=0
+
 let g:rustfmt_autosave = 1
 let g:LanguageClient_useVirtualText = 0
 

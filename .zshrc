@@ -35,6 +35,7 @@ setopt HIST_REDUCE_BLANKS
 
 export PATH=~/bin:$PATH
 export PATH=~/.cargo/bin:$PATH
+export PATH=~/.local/bin:$PATH
 
 os=`uname -s`
 case $os in
