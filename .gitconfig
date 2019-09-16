@@ -10,7 +10,8 @@
 [push]
     default = simple
 [alias]
-    c = commit
+    c = commit --signoff
+    pull = pull --signoff
     co = checkout
     fixup = commit --amend --no-edit
 [pager]
