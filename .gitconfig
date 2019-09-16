@@ -12,8 +12,10 @@
 [alias]
     c = commit --signoff
     pull = pull --signoff
+    rebase = rebase --signoff
     co = checkout
     fixup = commit --amend --no-edit
+    unstage = restore --staged
 [pager]
     diff = diff-so-fancy | less --tabs=4 -R
     show = diff-so-fancy | less --tabs=4 -R
