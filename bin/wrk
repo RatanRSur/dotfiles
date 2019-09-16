@@ -1,16 +1,12 @@
 #!/bin/bash
 
-if [ ! -d ~/wrk/pantheon ]; then
+if [ ! -d ~/wrk/besu ]; then
     mkdir -p ~/wrk
-    hub clone PegaSysEng/pantheon ~/wrk/pantheon
+    hub clone hyperledger/besu ~/wrk/besu
 fi
 
-if ! flatpak list | rg Slack > /dev/null ; then
-    flatpak install com.slack.Slack
-fi
-
-tmux select-window -t pantheon || (tmux new-window -n pantheon -c ~/wrk/pantheon && tmux send-keys "git status" Enter)
-pgrep idea || nohup idea >/dev/null 2>&1 &
-pgrep slack || nohup com.slack.Slack >/dev/null 2>&1 &
-pgrep rocketchat-desktop || nohup rocketchat-desktop >/dev/null 2>&1 &
-pgrep zoom || nohup zoom >/dev/null 2>&1 &
+tmux select-window -t besu || (tmux new-window -n besu -c ~/wrk/besu && tmux send-keys "git status" Enter)
+chronic pgrep idea || nohup idea >/dev/null 2>&1 &
+chronic pgrep slack || nohup com.slack.Slack >/dev/null 2>&1 &
+chronic pgrep rocketchat-desktop || nohup rocketchat-desktop >/dev/null 2>&1 &
+chronic pgrep zoom || nohup zoom >/dev/null 2>&1 &
