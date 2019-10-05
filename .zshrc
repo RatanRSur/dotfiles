@@ -166,11 +166,3 @@ if which tmux &>/dev/null && [ -z "$TMUX" ] && [ "$TERM" != "linux" ]; then
         fi
     fi
 fi
-
-for exe in $(tldr --list | sd ", " "\n" | shuf | tr "\n" " "); do
-    which $exe &> /dev/null || continue
-    echo "$exe"
-    tldr "$exe"
-    break
-done
-
