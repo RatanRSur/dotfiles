@@ -23,7 +23,7 @@ else
   INTERFACE=$(ip route | awk '/^default/ { print $5 ; exit }')
 fi
 
-if rfkill -r | rg "wlan.*\bblocked\b" 2>&1 >/dev/null; then
+if rfkill -r | rg "wlan.*\bblocked\b" >/dev/null 2>&1 ; then
     echo "🚫"
     echo "🚫"
     echo "#AB4642"
