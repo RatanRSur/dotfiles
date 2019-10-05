@@ -4,9 +4,10 @@ then
     echo "Not connected to the internet"
     exit 1
 fi
+window_name="update"
+update_layout="tmux select-layout -t $window_name tiled"
 
-update_layout="tmux select-layout -t update tiled"
-tmux select-window -t update 2>/dev/null || tmux new-window -c ~ -n update
+tmux select-window -t $window_name 2>/dev/null || tmux new-window -c ~ -n $window_name
 tmux send-keys yay Enter
 for command in "nvim +PlugUpdate +PlugUpgrade +q +q" "rustup update" "flatpak update -y" "gem update" "tldr --update" "sh $ZSH/tools/upgrade.sh" "~/.tmux/plugins/tpm/bin/update_plugins all"
 do
