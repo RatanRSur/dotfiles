@@ -28,7 +28,6 @@ Plug 'moll/vim-bbye'
 Plug 'ap/vim-css-color', { 'for' : 'css'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'craigemery/vim-autotag'
 Plug 'fatih/vim-go'
 Plug 'tomlion/vim-solidity', { 'for' : 'sol' }
 Plug 'ianding1/leetcode.vim'
