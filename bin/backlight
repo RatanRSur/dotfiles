@@ -6,4 +6,5 @@
 for _ in $(seq "$2"); do
  xbacklight -$1 1
 done
+pkill -SIGRTMIN+1 i3blocks
 
