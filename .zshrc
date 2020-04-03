@@ -71,7 +71,8 @@ case $os in
         #ls stuff
         export LS_COLORS=$LS_COLORS:'di=0;36:ow=0;37'
         alias l='ls -AlhF'
-        alias c="xsel --input --clipboard"
+        alias c="xsel -b --input"
+        alias v="xsel -b"
         export BROWSER="google-chrome-stable"
         alias sudo="sudo --preserve-env" # preserves caller env
         function del {
