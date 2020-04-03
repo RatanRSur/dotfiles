@@ -3,18 +3,25 @@ tmpbg="/tmp/screen.png"
 gnome-screenshot -f "$tmpbg"
 
 ## Pixelate
+convert "$tmpbg" -scale 10% -scale 1000% "$tmpbg"
 #convert "$tmpbg" -scale 5% -scale 2000% "$tmpbg"
 #[[ -f $1 ]] && convert "$tmpbg" $1 -gravity center -composite -matte "$tmpbg"
 
 ## Corrupt
-bin=/home/ratan/bin/corruster
-#bin=corrupter
-if ! which $bin; then
-    notify-send "$bin not installed"
-    exit 1
-fi
-$bin "$tmpbg" "$tmpbg"
+#bins="/home/ratan/bin/corruster corrupter"
+#found_tool=false
+#for bin in $bins; do
+    #if command -v "$bin"; then
+        #$bin "$tmpbg" "$tmpbg"
+        #found_tool=true
+        #break
+    #fi
+#done
 
+#if [ "$found_tool" = false ]; then
+    #notify-send "$bin not installed"
+    #exit 1
+#fi
 muted=$(amixer get Master | rg off)
 
 amixer set Master mute
