@@ -4,3 +4,4 @@ bluetoothctl power on
 sleep 1
 xinput --set-prop "pointer:MX Master Mouse" "libinput Accel Speed" 1.0
 xinput --set-prop "pointer:MX Master Mouse" "libinput Natural Scrolling Enabled" 1
+xinput set-prop "Logitech G203 Prodigy Gaming Mouse" "libinput Natural Scrolling Enabled" 1
