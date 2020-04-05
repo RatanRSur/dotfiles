@@ -6,37 +6,32 @@ Plug 'airblade/vim-gitgutter'
 Plug 'prendradjaja/vim-vertigo'
 Plug 'ciaranm/detectindent'
 Plug 'chriskempson/base16-vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'Chiel92/vim-autoformat'
 Plug 'scrooloose/nerdcommenter'
-Plug 'benekastah/neomake'
 Plug 'reedes/vim-lexical'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'sjl/vitality.vim'
 Plug 'wellle/targets.vim'
 Plug 'JuliaEditorSupport/julia-vim'
-Plug 'derekwyatt/vim-scala', { 'for' : 'scala'}
-Plug 'ensime/ensime-vim', { 'do': ':UpdateRemotePlugins' }
-Plug 'rust-lang/rust.vim'
+Plug 'derekwyatt/vim-scala'
+Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'lervag/vimtex'
 Plug 'moll/vim-bbye'
 Plug 'ap/vim-css-color', { 'for' : 'css'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'fatih/vim-go'
-Plug 'tomlion/vim-solidity', { 'for' : 'sol' }
 Plug 'ianding1/leetcode.vim'
-"testing zone
-Plug 'SirVer/ultisnips'
 call plug#end()
 let g:plug_threads = 16
 
 
+set nobackup
+set nowritebackup
+set cmdheight=2
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
 set undofile
 set undodir=~/.vim/undodir
 set noswapfile
@@ -68,6 +63,8 @@ set listchars+=tab:▷\     " WHITE RIGHT-POINTING TRIANGLE (U+25B7, UTF-8: E2 9
 set listchars+=extends:»  " RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
 set listchars+=precedes:« " LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
 set listchars+=trail:•    " BULLET (U+2022, UTF-8: E2 80 A2)
+au BufRead,BufNewFile *.sbt set filetype=scala
+autocmd FileType json syntax match Comment +\/\/.\+$+
 autocmd BufEnter *.go set listchars+=tab:\ \ 
 autocmd BufLeave *.go set listchars+=tab:▷\ 
 autocmd InsertEnter * set listchars-=trail:•
@@ -121,18 +118,6 @@ nmap <silent> <BS> 
 nnoremap * *N
 nnoremap c* *Ncgn
 
-" auto horizontal or vertical help based on window dimensions
-function! s:ShowHelp(tag) abort
-    if (3*winheight('0')) < winwidth('0') " The 3 is a heuristic
-        execute 'vertical help '.a:tag
-    else
-        execute 'help '.a:tag
-    endif
-endfunction
-
-command! -nargs=1 H call s:ShowHelp(<f-args>)
-cabbrev h H
-
 "vim vertigo stuff
 nnoremap <silent> <Leader>j :<C-U>VertigoDown n<CR>
 vnoremap <silent> <Leader>j :<C-U>VertigoDown v<CR>
@@ -179,8 +164,31 @@ highlight! link Identifier Constant
 highlight! Macro ctermfg=Green
 "match Error /\%121v.\+/
 
-"code beautification
-noremap <Leader>a :Autoformat<CR>
+" Formatting selected code.
+xmap <leader>a  <Plug>(coc-format-selected)
+nmap <leader>a  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+
+" Add `:Fold` command to fold current buffer.
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add (Neo)Vim's native statusline support.
+" NOTE: Please see `:h coc-status` for integrations with external plugins that
+" provide custom statusline: lightline.vim, vim-airline.
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " let g:autoformat_verbosemode=1
 let g:formatdef_cust_cpp = '"astyle --mode=c --style=java --indent=spaces=4 -xGfpHUxek3W3jOocxyxC98"'
@@ -190,9 +198,6 @@ let g:formatters_c = ['cust_c']
 let g:formatdef_scalafmt = '"scalafmt --config ~/.scalafmt.conf --stdin"'
 let g:formatters_scala = ['scalafmt']
 
-let g:neomake_cpp_enable_markers=['clang']
-let g:neomake_cpp_clang_args = ["-std=c++11", "-Wextra", "-Wall"]
-autocmd! BufWritePost * Neomake "neomake stuff
 
 "trying nice next and Next searching
 """"""""""""""""''
@@ -225,30 +230,38 @@ augroup lexical
 augroup END
 let g:lexical#spell_key = '<leader>s'
 
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-let g:deoplete#enable_at_startup = 1 " Use deoplete.
-autocmd BufReadPost * inoremap <silent><expr> <TAB>
-            \ pumvisible() ? "\<C-n>" :
-            \ <SID>check_back_space() ? "\<TAB>" :
-            \ deoplete#mappings#manual_complete()
+" Used in the tab autocompletion for coc
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
-function! s:check_back_space() abort "{{{
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
-endfunction"}}}
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-let g:LanguageClient_autoStart = 1
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    \ 'go': ['~/go/bin/go-langserver'],
-    \ 'java': ['/usr/bin/jdtls'],
-    \ 'julia' : ['julia', '--startup-file=no', '--history-file=no', '-e', '
-    \   using LanguageServer;
-    \   server = LanguageServer.LanguageServerInstance(stdin, stdout, false);
-    \   server.runlinter = true;
-    \   run(server);
-    \   '],
-    \ }
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+"let g:LanguageClient_autoStart = 1
+"let g:LanguageClient_serverCommands = {
+    "\ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    "\ 'go': ['~/go/bin/go-langserver'],
+    "\ 'java': ['/usr/bin/jdtls'],
+    "\ 'julia' : ['julia', '--startup-file=no', '--history-file=no', '-e', '
+    "\   using LanguageServer;
+    "\   server = LanguageServer.LanguageServerInstance(stdin, stdout, false);
+    "\   server.runlinter = true;
+    "\   run(server);
+    "\   '],
+    "\ }
 
 autocmd BufWrite *.hs :Autoformat
 " Don't automatically indent on save, since vim's autoindent for haskell is buggy
@@ -259,8 +272,21 @@ let g:LanguageClient_useVirtualText = 0
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 " Or map each action separately
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+"nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
 
 
 "fzf
@@ -279,7 +305,8 @@ let g:fzf_colors = { 'fg':      ['fg', 'Normal'],
 map <Leader>e :FZF<CR>
 map <Leader>f :FZF 
 map <Leader>b :Buffers<CR>
-map <Leader>t :Tags<CR>
+" Search workspace symbols.
+nnoremap <silent> <Leader>t  :<C-u>CocList -I symbols<cr>
 set tags=./tags,./.tags,.tags,tag,tags
 map <Leader>l :Lines<CR>
 map <Leader>` :FZF ~<CR>
