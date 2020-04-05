@@ -1,2 +1,4 @@
 tags
+.bloop
+.metals
 *.~undo-tree~
