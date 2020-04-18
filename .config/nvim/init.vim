@@ -14,7 +14,6 @@ Plug 'sjl/vitality.vim'
 Plug 'wellle/targets.vim'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'derekwyatt/vim-scala'
-Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'lervag/vimtex'
 Plug 'moll/vim-bbye'
@@ -25,16 +24,9 @@ Plug 'ianding1/leetcode.vim'
 call plug#end()
 let g:plug_threads = 16
 
-
-set nobackup
-set nowritebackup
-set cmdheight=2
-set updatetime=300
-set shortmess+=c
+set noemoji
 set signcolumn=yes
 set undofile
-set undodir=~/.vim/undodir
-set noswapfile
 set splitbelow
 set splitright
 set number
@@ -43,9 +35,7 @@ set cursorline
 set ruler
 set mouse=a
 set expandtab
-set shiftwidth=4
-set softtabstop=4
-set nosmd   " short for 'noshowmode'
+set noshowmode
 set noerrorbells
 set visualbell
 set sidescroll=1
@@ -81,10 +71,7 @@ set foldopen-=search
 set foldmethod=syntax
 set foldlevel=99
 "set foldcolumn=1
-""" autoread
-set autoread
-au FocusGained,BufEnter * :silent! !
-"""
+
 set foldtext=MyFoldText()
 function! MyFoldText()
     return "▶ ". getline(v:foldstart)
@@ -93,13 +80,10 @@ endfunction
 let mapleader = "\<Space>" " space leader
 " remap stuff with leader
 nnoremap <Leader>w :update<CR>
-nnoremap <Leader><Leader>w :w!<CR>
+nnoremap <Leader>d :Bdelete<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader><Leader>q :q!<CR>
 nnoremap <Leader>x :x<CR>
-nnoremap <Leader>n :bn<CR>
-nnoremap <Leader>d :Bdelete<CR>
-nnoremap <Leader>p :bp<CR>
 
 " comment and copy
 nnoremap <Leader>cp :let @i=@0<CR>:call NERDComment('n', "yank")<CR>p:let @0=@i<CR>
@@ -138,8 +122,6 @@ augroup highlight_follows_vim
     autocmd FocusLost * set nocursorline
 augroup END
 
-let g:closetag_filenames = '*.xml,*.html,*.xhtml,*.phtml'
-
 "make arrow keys do something useful
 nnoremap <silent> <Left> :vertical resize +2<CR>
 nnoremap <silent> <Right> :vertical resize -2<CR>
@@ -147,7 +129,6 @@ nnoremap <silent> <Up> :resize -2<CR>
 nnoremap <silent> <Down> :resize +2<CR>
 
 inoremap <C-c> <Esc>
-syntax enable
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
@@ -162,11 +143,6 @@ highlight! link SpellBad ErrorMsg
 highlight! link SpellCap ErrorMsg
 highlight! link Identifier Constant
 highlight! Macro ctermfg=Green
-"match Error /\%121v.\+/
-
-" Formatting selected code.
-xmap <leader>a  <Plug>(coc-format-selected)
-nmap <leader>a  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -188,19 +164,34 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-" let g:autoformat_verbosemode=1
-let g:formatdef_cust_cpp = '"astyle --mode=c --style=java --indent=spaces=4 -xGfpHUxek3W3jOocxyxC98"'
-let g:formatters_cpp = ['cust_cpp']
-let g:formatdef_cust_c = '"astyle --mode=c --style=java --indent=spaces=4 -fpHUxek3W3jOocxC98"'
-let g:formatters_c = ['cust_c']
-let g:formatdef_scalafmt = '"scalafmt --config ~/.scalafmt.conf --stdin"'
-let g:formatters_scala = ['scalafmt']
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
+" Used in the tab autocompletion for coc
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
-"trying nice next and Next searching
-""""""""""""""""''
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+    \ zz
+nmap <silent> gy <Plug>(coc-type-definition)
+    \ zz
+nmap <silent> gi <Plug>(coc-implementation)
+    \ zz
+nmap <silent> gr <Plug>(coc-references)
+
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+"nice next and Next searching
 function! s:nice_next(cmd)
     let view = winsaveview()
     execute "normal! " . a:cmd
@@ -208,7 +199,6 @@ function! s:nice_next(cmd)
         normal! zz
     endif
 endfunction
-
 nnoremap n :silent! :call <SID>nice_next('n')<cr>
 nnoremap N :silent! :call <SID>nice_next('N')<cr>
 """""""""""""""""""''
@@ -230,50 +220,7 @@ augroup lexical
 augroup END
 let g:lexical#spell_key = '<leader>s'
 
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-" Used in the tab autocompletion for coc
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-"let g:LanguageClient_autoStart = 1
-"let g:LanguageClient_serverCommands = {
-    "\ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    "\ 'go': ['~/go/bin/go-langserver'],
-    "\ 'java': ['/usr/bin/jdtls'],
-    "\ 'julia' : ['julia', '--startup-file=no', '--history-file=no', '-e', '
-    "\   using LanguageServer;
-    "\   server = LanguageServer.LanguageServerInstance(stdin, stdout, false);
-    "\   server.runlinter = true;
-    "\   run(server);
-    "\   '],
-    "\ }
-
-autocmd BufWrite *.hs :Autoformat
-" Don't automatically indent on save, since vim's autoindent for haskell is buggy
-autocmd FileType haskell let b:autoformat_autoindent=0
-
-let g:rustfmt_autosave = 1
-let g:LanguageClient_useVirtualText = 0
-
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-" Or map each action separately
 nnoremap <silent> K :call <SID>show_documentation()<CR>
-"nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -283,6 +230,7 @@ function! s:show_documentation()
   endif
 endfunction
 
+set updatetime=300
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
@@ -323,15 +271,6 @@ if executable('rg')
                 \ --glob !Applications
                 \ --glob !macports
                 \ --hidden -L -l "" 2>/dev/null'
-elseif executable('ag')
-    nnoremap <Leader>g :Ag<CR>
-    let $FZF_DEFAULT_COMMAND='ag
-                \ --ignore .git
-                \ --ignore undodir
-                \ --ignore Library
-                \ --ignore Applications
-                \ --ignore macports
-                \ --hidden -f -g "" 2>/dev/null'
 endif
 
 let g:leetcode_username='ratan.r.sur@gmail.com'
