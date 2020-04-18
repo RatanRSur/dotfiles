@@ -2,8 +2,8 @@
 $@
 exit_code=$?
 if [ $exit_code -eq 0 ]; then
- notify-send "$* ✅"
+ notify-send -u low "$*"
 else
-    notify-send -u critical "$* ❌"
+    notify-send -u critical "$*"
     exit $exit_code
 fi
