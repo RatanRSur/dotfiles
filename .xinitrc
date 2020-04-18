@@ -43,7 +43,6 @@ xinput --set-prop "$touchpad" "libinput Tapping Enabled" 1
 xbindkeys
 pgrep redshift &> /dev/null || redshift -l 40.7128:-74.0060 &> /dev/null &
 xset r rate 225 30
-compton -b #enable for zoom
 autorandr --change # this should imply wallpaper setting from autorandr postswitch
 wallpaper
 exec i3 -V >> ~/log/i3log-$(date +'%F-%k-%M-%S') 2>&1
