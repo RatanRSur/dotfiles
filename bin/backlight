@@ -1,10 +1,4 @@
 #!/bin/bash
 
-[ -z "$1" ] || [ -z "$2" ] && exit 1
-[ "$(pgrep "$(basename "$0")" | wc -l)" -gt 2 ] && exit 2
-
-for _ in $(seq "$2"); do
- xbacklight -$1 1
-done
+xbacklight -$1 5
 pkill -SIGRTMIN+1 i3blocks
-
