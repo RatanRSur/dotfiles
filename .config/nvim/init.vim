@@ -21,6 +21,7 @@ Plug 'ap/vim-css-color', { 'for' : 'css'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'ianding1/leetcode.vim'
+Plug 'andys8/vim-elm-syntax'
 call plug#end()
 let g:plug_threads = 16
 
