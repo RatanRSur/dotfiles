@@ -28,6 +28,10 @@ let g:plug_threads = 16
 set noemoji
 set signcolumn=yes
 set undofile
+"autoread
+set autoread
+au FocusGained,BufEnter * :silent! !
+"""
 set splitbelow
 set splitright
 set number
