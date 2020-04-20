@@ -1,12 +1,6 @@
 #!/bin/bash
 if [ -z "$TMUX" ]; then #start tmux
     echo "you're not in a tmux session"
-elif [ -e build.sbt ]; then #scala
-    tmux rename-window "$(pwd | xargs basename)"
-    tmux split-window -h
-    tmux send-keys "sbt" Enter "~testQuick" Enter
-    tmux select-pane -t {left}
-    nvim -c "tabnew | FZF src/test"
 elif [ -n "$(ls *.tex)" ];then
     tex_file=$(ls *.tex | head -1)
     pdf_file=$(echo "$tex_file" | sed 's/\.tex$/\.pdf/')
