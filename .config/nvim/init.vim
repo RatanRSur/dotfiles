@@ -188,11 +188,8 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
-    \ zz
 nmap <silent> gy <Plug>(coc-type-definition)
-    \ zz
 nmap <silent> gi <Plug>(coc-implementation)
-    \ zz
 nmap <silent> gr <Plug>(coc-references)
 
 nmap <leader>a  <Plug>(coc-codeaction-selected)
