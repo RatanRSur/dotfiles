@@ -40,32 +40,6 @@ export PATH=~/.local/bin:$PATH
 os=`uname -s`
 case $os in
     "Darwin" )
-        export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-        #color output
-        export CLICOLOR=1
-        export LSCOLORS=exfxcxdxbxegedabagacad
-        #ls aliases
-        alias l='ls -GAlFh'
-        #brew stuff
-        alias brewup="brew update -all && brew upgrade"
-        function update {
-            brew update -all &&
-            brew upgrade &&
-            brew cask upgrade &&
-            nvim -c 'PlugUpdate | q | q' &&
-            tldr --update &&
-            julia --eval 'Pkg.update(); exit()' &&
-            cabal update
-        }
-        function notify {
-            osascript -e 'display notification "" with title "Command Finished"'
-        }
-        #nasa apod stuff
-        [ "$(ls -A ~/Pictures/apod | grep -v DS_store)" ] && echo "You have astronomy pictures for review!"
-        #move to trash instead of deleting forever
-        if hash trash 2>/dev/null; then
-            alias rm='trash'
-        fi
         ;;
     "Linux" )
         #ls stuff
