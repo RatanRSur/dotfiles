@@ -260,6 +260,7 @@ let g:fzf_colors = { 'fg':      ['fg', 'Normal'],
 map <Leader>e :FZF<CR>
 map <Leader>f :FZF 
 map <Leader>b :Buffers<CR>
+let g:fzf_preview_window = ''
 " Search workspace symbols.
 nnoremap <silent> <Leader>t  :<C-u>CocFzfList symbols<cr>
 nnoremap <silent> <Leader>s  :<C-u>CocFzfList outline<cr>
