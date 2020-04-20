@@ -79,9 +79,9 @@ if [ "$TERM" != "linux" ]; then
     BASE16_SHELL=$HOME/.config/base16-shell/
     [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 fi
-#system independent exports
+
 export FZF_DEFAULT_OPTS='--color 16'
-#other aliases
+
 alias n='nvim'
 alias tmux='tmux -2'
 alias rr='rm -r'
