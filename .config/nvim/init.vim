@@ -20,6 +20,7 @@ Plug 'moll/vim-bbye'
 Plug 'ap/vim-css-color', { 'for' : 'css'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'antoinemadec/coc-fzf'
 Plug 'ianding1/leetcode.vim'
 Plug 'andys8/vim-elm-syntax'
 call plug#end()
@@ -260,7 +261,8 @@ map <Leader>e :FZF<CR>
 map <Leader>f :FZF 
 map <Leader>b :Buffers<CR>
 " Search workspace symbols.
-nnoremap <silent> <Leader>t  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <Leader>t  :<C-u>CocFzfList symbols<cr>
+nnoremap <silent> <Leader>s  :<C-u>CocFzfList outline<cr>
 set tags=./tags,./.tags,.tags,tag,tags
 map <Leader>l :Lines<CR>
 map <Leader>` :FZF ~<CR>
