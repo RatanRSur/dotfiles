@@ -1,5 +1,6 @@
 set $term kitty
 exec $term
+exec discord
 
 set $base00 #1D1F21
 set $base08 #CC6666
