@@ -7,7 +7,7 @@ rofi.lines:                          1
 ! "Number of columns" Set from: Default
 rofi.columns:                        6
 ! "Font to use" Set from: Default
-rofi.font:                           Consolas 14
+rofi.font:                           JetBrainsMonoNL 13
 ! "Border width" Set from: Default
 rofi.bw:                             0
 ! "Location on screen" Set from: Default

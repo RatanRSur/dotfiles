@@ -35,7 +35,7 @@ focus_on_window_activation focus
 force_display_urgency_hint 750 ms
 
 for_window [class=".*"] border pixel 1
-for_window [class=".*"] title_format "<span font='Consolas 9'>%class - %title</span>"
+for_window [class=".*"] title_format "<span font='JetBrainsMonoNL 9'>%class - %title</span>"
 #gaps inner 3
 
 assign [class="jetbrains-idea-ce"] 2
@@ -117,7 +117,7 @@ mode "resize" {
 }
 
 bar {
-        font pango:Consolas 13
+        font pango:JetBrainsMonoNL 12
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
         colors {
             separator $base03
