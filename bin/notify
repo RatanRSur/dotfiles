@@ -3,7 +3,7 @@ $@
 exit_code=$?
 if [ $exit_code -eq 0 ]; then
  notify-send -u low "$*"
-else
+elif [ $exit_code -ne 130 ]; then
     notify-send -u critical "$*"
     exit $exit_code
 fi
