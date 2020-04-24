@@ -32,6 +32,8 @@ set undofile
 set autoread
 au FocusGained,BufEnter * :silent! !
 """
+set winwidth=106
+"set winminwidth=50
 set splitbelow
 set splitright
 set number
