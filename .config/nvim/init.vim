@@ -9,7 +9,6 @@ Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'scrooloose/nerdcommenter'
 Plug 'reedes/vim-lexical'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'sjl/vitality.vim'
 Plug 'wellle/targets.vim'
 Plug 'JuliaEditorSupport/julia-vim'
@@ -36,7 +35,11 @@ au FocusGained,BufEnter * :silent! !
 set splitbelow
 set splitright
 set number
-set relativenumber
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * set rnu
+  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * set nornu
+augroup END
 set cursorline
 set ruler
 set mouse=a
