@@ -12,16 +12,14 @@ Plug 'reedes/vim-lexical'
 Plug 'sjl/vitality.vim'
 Plug 'wellle/targets.vim'
 Plug 'JuliaEditorSupport/julia-vim'
-Plug 'derekwyatt/vim-scala'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'lervag/vimtex'
 Plug 'moll/vim-bbye'
-Plug 'ap/vim-css-color', { 'for' : 'css'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'antoinemadec/coc-fzf'
 Plug 'ianding1/leetcode.vim'
 Plug 'andys8/vim-elm-syntax'
+Plug 'ruanyl/vim-gh-line'
 call plug#end()
 let g:plug_threads = 16
 
