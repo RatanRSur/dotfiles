@@ -155,6 +155,7 @@ highlight! link SpellBad ErrorMsg
 highlight! link SpellCap ErrorMsg
 highlight! link Identifier Constant
 highlight! Macro ctermfg=Green
+highlight! link CocWarningSign CocInfoSign
 
 augroup mygroup
   autocmd!
