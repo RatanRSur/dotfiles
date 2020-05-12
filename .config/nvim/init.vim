@@ -81,9 +81,9 @@ set hidden
 set foldopen-=search
 set foldmethod=syntax
 set foldlevel=99
-"set foldcolumn=1
 
 set foldtext=MyFoldText()
+set fillchars=fold:\ 
 function! MyFoldText()
     return "▶ ". getline(v:foldstart)
 endfunction
@@ -147,7 +147,8 @@ endif
 highlight Comment cterm=italic
 highlight Search cterm=reverse,underline ctermbg=NONE ctermfg=NONE
 highlight Error term=reverse cterm=bold ctermfg=Red ctermbg=None guifg=Red guibg=None
-highlight Folded ctermbg=Black
+highlight! link Folded Type
+highlight FoldColumn ctermfg=3
 highlight GitGutterChange ctermfg=yellow
 highlight GitGutterChangeDelete ctermfg=DarkYellow
 highlight! link SpellBad ErrorMsg
