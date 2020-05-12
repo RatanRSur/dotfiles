@@ -56,14 +56,14 @@ print "BAT $short_text\n";
 # consider color and urgent flag only on discharge
 if ($status eq 'Discharging') {
 
-	if ($percent < 20) {
+	if ($percent < 10) {
 		print "#AB4642\n";
-	} elsif ($percent < 40) {
+	} elsif ($percent < 25) {
 		print "#DC9656\n";
-	} elsif ($percent < 60) {
+	} elsif ($percent < 50) {
 		print "#F7CA88\n";
-	} elsif ($percent < 85) {
-		print "#B8B8B8\n";
+	#} elsif ($percent < 85) {
+		#print "#B8B8B8\n";
 	}
 
 	if ($percent < 5) {
