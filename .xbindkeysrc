@@ -83,6 +83,10 @@
     m:0x0 + c:233
     XF86MonBrightnessUp
 
+"/home/ratan/bin/screenshot"
+    m:0x0 + c:107
+    Print
+
 #Press combination of keys or/and click under the window.
 #You can use one of the two lines after "NoCommand"
 #in $HOME/.xbindkeysrc to bind a key.
