@@ -44,6 +44,7 @@ assign [class="Slack"] 3
 assign [class="Rocket.Chat"] 3
 assign [class="discord"] 3
 assign [class="zoom"] 4
+assign [class="Spotify"] 7
 
 bindsym $mod+Return exec $term
 bindsym $mod+Tab workspace next
