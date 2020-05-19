@@ -44,7 +44,6 @@ xbindkeys
 keyboard
 autorandr --change # this should imply wallpaper setting from autorandr postswitch
 wallpaper
-intel-virtual-output
 bluetoothctl power on
 clight &
 exec i3 -V >> ~/log/i3log-$(date +'%F-%k-%M-%S') 2>&1
