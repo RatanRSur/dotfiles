@@ -24,7 +24,6 @@ bluez
 bluez-utils
 bsd-games
 btrfs-progs
-bumblebee
 bzip2
 cgdb
 chromium
@@ -91,6 +90,7 @@ git-delta
 github-cli
 glances
 glibc
+glmark2-git
 gnome-screenshot
 gnu-netcat
 go
@@ -189,7 +189,9 @@ nmap
 nodejs
 nordvpn-bin
 noto-fonts-emoji
+nushell-stable
 nvidia
+nvidia-prime
 nvidia-settings
 ocl-icd
 openjdk-src
@@ -201,7 +203,7 @@ openssl-1.0
 openvpn
 pacman
 pacman-contrib
-pandoc
+pandoc-bin
 parallel
 parity-ethereum
 patch
@@ -226,11 +228,9 @@ python-pip
 python-pynvim
 python-virtualenv
 ranger
-redshift
 reflector
 reiserfsprogs
 ripgrep
-rocketchat-client-bin
 rofi
 rtorrent
 s-nail
@@ -240,7 +240,7 @@ screenkey
 sd
 sed
 shadow
-shellcheck
+shellcheck-bin
 sl
 slop
 smartmontools
@@ -278,7 +278,6 @@ texlive-science
 tlp
 tmux
 topgrade
-tp_smapi
 traceroute
 transmission-cli
 transmission-gtk
@@ -296,8 +295,7 @@ vulkan-radeon
 w3m
 wget
 which
-wine
-winetricks
+wine-staging
 wowman
 xbindkeys
 xdotool
