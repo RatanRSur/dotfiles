@@ -6,6 +6,12 @@ if [ ! -d ~/wrk/besu ]; then
 fi
 
 tmux select-window -t besu || (tmux new-window -n besu -c ~/wrk/besu && tmux send-keys "git status" Enter)
-chronic pgrep idea || nohup idea >/dev/null 2>&1 &
-chronic pgrep discord || nohup discord >/dev/null 2>&1 &
-chronic pgrep slack || nohup com.slack.Slack >/dev/null 2>&1 &
+
+function maybeLaunch {
+  chronic pgrep $1 || nohup $1 >/dev/null 2>&1 &
+}
+
+maybeLaunch idea
+maybeLaunch discord
+maybeLaunch com.slack.Slack
+maybeLaunch google-chrome-stable
