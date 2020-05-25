@@ -111,7 +111,6 @@ hexyl
 hplip
 hsetroot
 htop-vim-git
-hub
 i3-gaps
 i3blocks
 i3lock
@@ -125,7 +124,6 @@ iputils
 irssi
 iw
 jdk-openjdk
-jdk11-openjdk
 jfsutils
 jq
 julia
@@ -189,6 +187,7 @@ nmap
 nodejs
 nordvpn-bin
 noto-fonts-emoji
+nottetris2
 nushell-stable
 nvidia
 nvidia-prime
@@ -196,8 +195,6 @@ nvidia-settings
 ocl-icd
 openjdk-src
 openjdk11-src
-openjdk8-doc
-openjdk8-src
 openssh
 openssl-1.0
 openvpn
