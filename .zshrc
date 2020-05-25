@@ -90,7 +90,6 @@ fi
 export FZF_DEFAULT_OPTS='--color 16'
 
 alias n='nvim'
-alias tmux='tmux -2'
 alias gs='git status'
 alias gl='git log --graph --left-right --format="%Cgreen%h %Creset%s %Cblue%aN %Cred%d%Creset"'
 alias git=hub
