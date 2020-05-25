@@ -52,6 +52,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec rofi -show drun
 bindsym $mod+Escape exec bin/lock
 bindsym $mod+u exec bin/emoji
+bindsym $mod+g exec bin/password
 bindsym $mod+n exec $term -e zsh -ci ranger
 bindsym $mod+b exec google-chrome-stable
 bindsym $mod+i [class="jetbrains-idea-ce"] focus
