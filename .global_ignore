@@ -2,3 +2,5 @@ tags
 .bloop
 .metals
 *.~undo-tree~
+/.idea
+/.vim
