@@ -137,8 +137,7 @@ if which tmux &>/dev/null && [ -z "$TMUX" ] && [ "$TERM" != "linux" ]; then
         tmux split-window -h -c "dotfiles"
         tmux send-keys "git status" Enter
         tmux select-pane -t {left}
-        tmux new-window -n stf -c "stf"
-        tmux -2 attach-session -d
+        tmux attach-session -d
     elif tmux list-sessions | grep -v attached &> /dev/null; then
         echo "Attach to unattached session? [y/N]"
         if read -q; then
