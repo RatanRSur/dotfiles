@@ -54,4 +54,3 @@ repos = [
 # Custom commands
 [commands]
 "Docker" = "docker images | rg latest | awk '{print $1}' | parallel docker pull || true"
-"Briefing" = "briefing"
