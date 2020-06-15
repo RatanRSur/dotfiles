@@ -1,8 +1,4 @@
 # Additional git repositories to pull
-git_repos = [
-    "~/wrk/*/",
-    "~/stf/*/"
-]
 
 # Don't pull the predefined git repos
 # predefined_git_repos = false
@@ -25,9 +21,6 @@ no_retry = true
 # Arguments to pass SSH when upgrading remote systems
 #ssh_arguments = "-o ConnectTimeout=2"
 
-# Arguments to pass Git when pulling Repositories
-git_arguments = "--all -ff"
-
 # Arguments to pass tmux when pulling Repositories
 #tmux_arguments = "-S /var/tmux.sock"
 
@@ -42,6 +35,14 @@ git_arguments = "--all -ff"
 
 # Cleanup temporary or old files
 #cleanup = true
+
+[git]
+max_concurrency = 12
+arguments = "--all -ff"
+repos = [
+    "~/wrk/*/",
+    "~/stf/*/"
+]
 
 #[composer]
 #self_update = true
