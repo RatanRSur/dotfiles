@@ -2,7 +2,7 @@
 
 if [ ! -d ~/wrk/besu ]; then
     mkdir -p ~/wrk
-    hub clone hyperledger/besu ~/wrk/besu
+    gh repo clone hyperledger/besu ~/wrk/besu
 fi
 
 tmux select-window -t besu || (tmux new-window -n besu -c ~/wrk/besu && tmux send-keys "git status" Enter)
