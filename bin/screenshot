@@ -1,2 +1,2 @@
 #!/bin/bash
-gnome-screenshot -f ~/downloads/screenshot-$(date -Iseconds).png
+gnome-screenshot -f ~/Downloads/screenshot-$(date -Iseconds).png
