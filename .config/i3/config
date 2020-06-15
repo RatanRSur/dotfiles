@@ -53,7 +53,7 @@ bindsym $mod+d exec rofi -show drun
 bindsym $mod+Escape exec bin/lock
 bindsym $mod+u exec bin/emoji
 bindsym $mod+g exec bin/password
-bindsym $mod+n exec $term -e zsh -ci ranger
+bindsym $mod+n exec thunar
 bindsym $mod+b exec google-chrome-stable
 bindsym $mod+i [class="jetbrains-idea-ce"] focus
 bindsym --release $mod+z exec zathura && xdotool key o
