@@ -88,7 +88,6 @@ export FZF_DEFAULT_OPTS='--color 16'
 alias n='nvim'
 alias gs='git status'
 alias gl='git log --graph --left-right --format="%Cgreen%h %Creset%s %Cblue%aN %Cred%d%Creset"'
-alias git=hub
 function grl {
     gl --color "$@" | head -$(($(stty size | cut -d ' ' -f 1) / 2))
 }
