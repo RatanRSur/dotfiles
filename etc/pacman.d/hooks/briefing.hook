@@ -1,0 +1,11 @@
+[Trigger]
+Operation = Upgrade
+Operation = Install
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+Description = What's new?
+When = PostTransaction
+Exec = /home/ratan/bin/briefing
