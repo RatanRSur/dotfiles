@@ -3,6 +3,7 @@ application/epub+zip=org.pwmt.zathura-pdf-mupdf.desktop;
 application/oxps=org.pwmt.zathura-pdf-mupdf.desktop;
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
 application/xhtml_xml=google-chrome.desktop;
+application/x-bittorrent=transmission-gtk.desktop;
 image/webp=google-chrome.desktop;
 text/html=google-chrome.desktop;
 text/xml=google-chrome.desktop;
