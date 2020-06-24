@@ -14,4 +14,3 @@ function maybeLaunch {
 maybeLaunch idea
 maybeLaunch discord
 maybeLaunch com.slack.Slack
-maybeLaunch google-chrome-stable
