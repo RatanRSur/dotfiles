@@ -1,4 +1,4 @@
-set $term kitty
+set $term alacritty
 exec $term
 exec discord
 
