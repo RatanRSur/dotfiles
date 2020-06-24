@@ -20,6 +20,7 @@ blueberry
 bluez
 bluez-utils
 bsd-games
+btfs
 btrfs-progs
 bzip2
 capnproto
@@ -30,7 +31,7 @@ clang
 clight
 cmake
 cmatrix
-cnrdrvcups-lb
+cndrvcups-lb-bin
 cockatrice
 colorpicker
 consolas-font
@@ -74,6 +75,7 @@ flameshot
 flatpak
 flex
 foomatic-db-engine
+foomatic-db-ppds
 fortune-mod
 fwupd
 gawk
@@ -127,12 +129,10 @@ jdk-openjdk
 jfsutils
 jq
 julia
-kitty
 lastpass-cli
 less
 lib32-giflib
 lib32-gst-plugins-base-libs
-lib32-gtk3
 lib32-libpulse
 lib32-libva
 lib32-libxslt
@@ -148,7 +148,6 @@ logrotate
 lolcat
 lsof
 ltrace
-lutris
 lvm2
 lxappearance-gtk3
 m4
@@ -191,8 +190,6 @@ parallel
 patch
 pavucontrol
 pciutils
-perl
-perl-html-parser
 php
 picom
 pkgconf
@@ -209,11 +206,13 @@ python-beautifulsoup4
 python-pip
 python-pynvim
 python-virtualenv
+qemu
 ranger
 reflector
 reiserfsprogs
 ripgrep
 rofi
+rsync
 rtorrent
 s-nail
 sbt
