@@ -31,7 +31,7 @@ if rfkill -r | rg "wlan.*\bblocked\b" >/dev/null 2>&1 ; then
 fi
 
 # Issue #36 compliant.
-if ! [ -e "/sys/class/net/${INTERFACE}/operstate" ] || ! [ "`cat /sys/class/net/${INTERFACE}/operstate`" = "up" ]
+if ! [ -e "/sys/class/net/${INTERFACE}/operstate" ] || ! [ "`cat /sys/class/net/${INTERFACE}/operstate`" = "up" ] && ! [ "$INTERFACE" = "ens20u1" ]
 then
     echo "$INTERFACE ▼"
     echo "$INTERFACE ▼"
@@ -77,7 +77,7 @@ tx_rate=$(( $tx_diff / $time_diff ))
 # 1024^2 = 1048576, then display MiB/s instead
 
 iface=$(ip route | awk '/^default/ { print $5 ; exit }')
-full_text="$(nmcli d show $iface | grep CONNECTION | sed -re 's,\s+, ,g' | cut -d ' ' -f 2-) "
+full_text="$(nmcli d show $iface | grep CONNECTION | sed -re 's,\s+, ,g' | cut -d ' ' -f 2- | sed 's/connection//') "
 
 connectivity=$(nmcli n connectivity)
 if [ "$connectivity" != "full" ]; then
