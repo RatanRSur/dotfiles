@@ -40,6 +40,7 @@ for_window [class=".*"] title_format "<span font='JetBrainsMonoNL 9'>%class - %t
 #gaps inner 3
 
 assign [class="jetbrains-idea-ce"] 2
+assign [class="jetbrains-idea"] 2
 assign [class="Slack"] 3
 assign [class="discord"] 3
 assign [class="zoom"] 4
