@@ -14,7 +14,8 @@ autorandr
 bash
 bat
 bdf-unifont
-bind-tools
+besu
+bind
 binutils
 blueberry
 bluez
@@ -23,6 +24,7 @@ bsd-games
 btfs
 btrfs-progs
 bzip2
+cadmus-appimage
 capnproto
 cgdb
 chromium
@@ -67,6 +69,7 @@ feh
 festival
 festival-us
 file
+filelight
 filesystem
 findutils
 firefox
@@ -77,6 +80,7 @@ flex
 foomatic-db-engine
 foomatic-db-ppds
 fortune-mod
+freerdp
 fwupd
 gawk
 gcc
@@ -90,7 +94,6 @@ git-delta
 github-cli
 glances
 glibc
-glmark2-git
 gnome-screenshot
 gnu-netcat
 go
@@ -121,6 +124,7 @@ ifplugd
 inetutils
 intel-ucode
 intellij-idea-community-edition
+intellij-idea-ultimate-edition
 iproute2
 iputils
 irssi
@@ -140,10 +144,12 @@ lib32-mpg123
 lib32-ocl-icd
 lib32-openal
 lib32-v4l-utils
+libmicrodns
 libtool
 licenses
 linux
 linux-firmware
+linux-headers
 logrotate
 lolcat
 lsof
@@ -159,15 +165,18 @@ mdadm
 mimeo
 moreutils
 mpv
+namcap
 nasm
 neofetch
 neovim
 netctl
+network-manager-applet
 networkmanager
 networkmanager-dispatcher-ntpd
 nmap
 nodejs
 nohang-git
+noisetorch-bin
 nordvpn-bin
 noto-fonts-emoji
 nottetris2
@@ -193,6 +202,7 @@ pciutils
 php
 picom
 pkgconf
+playonlinux
 popcorntime-bin
 prettier
 procps-ng
@@ -210,11 +220,13 @@ qemu
 ranger
 reflector
 reiserfsprogs
+remmina
 ripgrep
 rofi
 rsync
 rtorrent
 s-nail
+samba
 sbt
 scala
 screenkey
@@ -223,6 +235,7 @@ sed
 shadow
 shellcheck-bin
 sl
+slack-desktop
 slop
 smartmontools
 solidity
@@ -275,12 +288,15 @@ vlc
 w3m
 wget
 which
+wine-gecko
+wine-mono
 wine-staging
 wowman
 xbindkeys
 xdotool
 xf86-video-intel
 xfsprogs
+xidlehook
 xorg-server
 xorg-xev
 xorg-xhost
