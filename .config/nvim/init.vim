@@ -20,6 +20,7 @@ Plug 'antoinemadec/coc-fzf'
 Plug 'ianding1/leetcode.vim'
 Plug 'andys8/vim-elm-syntax'
 Plug 'ruanyl/vim-gh-line'
+Plug 'cespare/vim-toml'
 call plug#end()
 let g:plug_threads = 16
 
