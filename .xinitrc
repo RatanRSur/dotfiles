@@ -36,5 +36,6 @@ keyboard
 autorandr --change # this should imply wallpaper setting from autorandr postswitch
 wallpaper
 bluetoothctl power on
+cadmus&
 clight &
 exec i3
