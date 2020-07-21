@@ -47,8 +47,7 @@ for (my $i=0; $i < 2; $i++) {
 
 # Print color, if needed
 if ($cpu_usage >= $t_crit) {
-    print "#AB4552\n";
-    exit 33;
+    print "#cc6666\n";
 } elsif ($cpu_usage >= $t_warn) {
     print "#F7CA88\n";
 }
