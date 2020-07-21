@@ -53,4 +53,4 @@ repos = [
 
 # Custom commands
 [commands]
-"Docker" = "docker images | rg latest | awk '{print $1}' | parallel docker pull || true"
+"Docker" = "docker images | rg latest | rg -v hive | awk '{print $1}' | parallel docker pull || true"
