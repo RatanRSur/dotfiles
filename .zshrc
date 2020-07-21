@@ -87,9 +87,20 @@ export FZF_DEFAULT_OPTS='--color 16'
 
 alias n='nvim'
 alias gs='git status'
-alias gl='git log --graph --left-right --format="%Cgreen%h %Creset%s %Cblue%aN %Cred%d%Creset"'
+
+unalias gl
+alias gd='git diff -w'
+
+function gl {
+  graph_option="--graph"
+  if [ "$(basename $(pwd))" = "linux" ]; then
+    graph_option=""
+  fi
+  git log $graph_option --left-right --format="%Cgreen%h %Creset%s %Cblue%aN %Cred%d%Creset" "$@"
+}
+
 function grl {
-    gl --color "$@" | head -$(($(stty size | cut -d ' ' -f 1) / 2))
+    gl --color "$@" -n $(($(stty size | cut -d ' ' -f 1) / 3)) | /usr/bin/cat
 }
 
 backup() {
