@@ -54,3 +54,4 @@ repos = [
 # Custom commands
 [commands]
 "Docker" = "docker images | rg latest | rg -v hive | awk '{print $1}' | parallel docker pull || true"
+"Julia" = "julia -e 'using Pkg; Pkg.update()'"
