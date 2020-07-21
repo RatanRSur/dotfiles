@@ -1,25 +1,45 @@
 {
-        "coc.preferences.formatOnSaveFiletypes": [
-                "rust",
-                "elm",
-                "python"
-        ],
-        "coc.preferences.diagnostic.locationlist": false,
-        "languageserver": {
-                "elmLS": {
-                        "command": "elm-language-server",
-                        "filetypes": [
-                                "elm"
-                        ],
-                        "rootPatterns": [
-                                "elm.json"
-                        ],
-                        "initializationOptions": {
-                                "elmPath": "elm", // optional
-                                "elmFormatPath": "elm-format", // optional
-                                "elmTestPath": "elm-test", // optional
-                                "elmAnalyseTrigger": "change" // optional
-                        }
-                }
+  "coc.preferences.formatOnSaveFiletypes": [
+    "rust",
+    "elm",
+    "python"
+  ],
+  "languageserver": {
+    "elmLS": {
+      "command": "elm-language-server",
+      "filetypes": [
+        "elm"
+      ],
+      "rootPatterns": [
+        "elm.json"
+      ],
+      "initializationOptions": {
+        "elmPath": "elm", // optional
+        "elmFormatPath": "elm-format", // optional
+        "elmTestPath": "elm-test", // optional
+        "elmAnalyseTrigger": "change" // optional
+      }
+    },
+    "haskell": {
+      "command": "hie-wrapper",
+      "args": [
+        "--lsp"
+      ],
+      "rootPatterns": [
+        "stack.yaml",
+        "cabal.config",
+        "package.yaml"
+      ],
+      "filetypes": [
+        "hs",
+        "lhs",
+        "haskell"
+      ],
+      "initializationOptions": {
+        "languageServerHaskell": {
+          "hlintOn": true
         }
+      }
+    }
+  }
 }
