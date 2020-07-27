@@ -134,10 +134,11 @@ if which tmux &>/dev/null && [ -z "$TMUX" ] && [ "$TERM" != "linux" ]; then
         tmux send-keys "git status" Enter
         tmux select-pane -t {left}
         tmux attach-session -d
-    elif tmux list-sessions | grep -v attached &> /dev/null; then
-        echo "Attach to unattached session? [y/N]"
+      else
+        unattached_session_name=$(tmux list-sessions | grep -v attached | cut -d ':' -f 1)
+        echo "Attach to $unattached_session_name? [y/N]"
         if read -q; then
-            tmux attach control || tmux attach
+            tmux attach "$unattached_session_name"
         fi
     fi
 fi
