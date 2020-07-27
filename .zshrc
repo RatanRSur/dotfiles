@@ -76,7 +76,7 @@ if hash exa 2>/dev/null; then
 fi
 
 export BAT_THEME="base16-tomorrow-night"
-alias cat='bat -p'
+alias cat='bat --plain --pager=never'
 
 if [ "$TERM" != "linux" ]; then
     BASE16_SHELL=$HOME/.config/base16-shell/
