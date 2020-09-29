@@ -32,6 +32,8 @@ setopt HIST_REDUCE_BLANKS
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+export HISTSIZE=500000
+export SAVEHIST=$HISTSIZE
 export PATH=~/bin:$PATH
 export PATH=~/.cargo/bin:$PATH
 export PATH=~/.local/bin:$PATH
