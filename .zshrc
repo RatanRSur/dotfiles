@@ -137,10 +137,9 @@ if which tmux &>/dev/null && [ -z "$TMUX" ] && [ "$TERM" != "linux" ]; then
         tmux select-pane -t {left}
         tmux attach-session -d
       else
-        unattached_session_name=$(tmux list-sessions | grep -v attached | cut -d ':' -f 1)
-        echo "Attach to $unattached_session_name? [y/N]"
-        if read -q; then
-            tmux attach "$unattached_session_name"
+        selected_session=$(tmux list-sessions | grep -v attached | cut -d ':' -f 1 | fzf --prompt='Attach to session: ')
+        if [ $? -eq 0 ]; then
+            tmux attach -t "$selected_session"
         fi
     fi
 fi
