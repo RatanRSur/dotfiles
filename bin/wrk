@@ -11,6 +11,7 @@ function maybeLaunch {
   chronic pgrep $1 || nohup $1 >/dev/null 2>&1 &
 }
 
-maybeLaunch idea
+maybeLaunch intellij-idea-ultimate-edition
 maybeLaunch discord
-maybeLaunch slack
+maybeLaunch com.slack.Slack
+maybeLaunch zoom
