@@ -1,4 +1,4 @@
-set $term alacritty --live-config-reload
+set $term alacritty
 exec $term
 exec discord
 
