@@ -1,10 +1,8 @@
-# Additional git repositories to pull
-
-# Don't pull the predefined git repos
-# predefined_git_repos = false
+# Don't ask for confirmations
+#assume_yes = true
 
 # Disable specific steps - same options as the command line flag
-disable = ["go"]
+#disable = ["go"]
 
 # Run specific steps - same options as the command line flag
 #only = ["system", "emacs"]
@@ -21,14 +19,10 @@ remote_topgrades = ["dustbunny","dustbunny-local"]
 # Arguments to pass SSH when upgrading remote systems
 #ssh_arguments = "-o ConnectTimeout=2"
 
+# Path to Topgrade executable on remote machines
+#remote_topgrade_path = ".cargo/bin/topgrade"
 # Arguments to pass tmux when pulling Repositories
 #tmux_arguments = "-S /var/tmux.sock"
-
-# Arguments to pass yay when updating packages
-#yay_arguments = "--nodevel"
-
-# Manually select Windows updates
-# accept_all_windows_updates = false
 
 # Do not set the terminal title
 #set_title = false
@@ -43,6 +37,12 @@ repos = [
     "~/wrk/*/",
     "~/stf/*/"
 ]
+
+# Don't pull the predefined git repos
+#predefined_repos = false
+
+# Arguments to pass Git when pulling Repositories
+#arguments = "--rebase --autostash"
 
 #[composer]
 #self_update = true

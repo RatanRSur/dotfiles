@@ -37,6 +37,7 @@ export SAVEHIST=$HISTSIZE
 export PATH=~/bin:$PATH
 export PATH=~/.cargo/bin:$PATH
 export PATH=~/.local/bin:$PATH
+export PATH=~/.gem/ruby/2.7.0/bin:$PATH
 export GOPATH=~/go
 
 os=`uname -s`

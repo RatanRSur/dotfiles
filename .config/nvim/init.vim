@@ -119,7 +119,6 @@ map q: :q
 " other mappings
 nmap Y y$
 nmap <silent> <CR> :nohl<CR>
-nmap <silent> <BS> 
 nnoremap * *N
 nnoremap c* *Ncgn
 
@@ -167,6 +166,14 @@ highlight! link Identifier Constant
 highlight! Macro ctermfg=Green
 highlight! link CocWarningSign CocInfoSign
 
+augroup lexical
+  autocmd!
+  autocmd FileType markdown,mkd call lexical#init()
+  autocmd FileType md call lexical#init()
+  autocmd FileType textile call lexical#init()
+  autocmd FileType text call lexical#init({ 'spell': 0 })
+augroup END
+
 augroup mygroup
   autocmd!
   " Setup formatexpr specified filetype(s).
@@ -204,10 +211,19 @@ endfunction
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gdd <Plug>(coc-definition)
+nmap <silent> gdv :sp<CR><Plug>(coc-definition)
+nmap <silent> gdh :vsp<CR><Plug>(coc-definition)
+
 nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+
+nmap <silent> gii <Plug>(coc-implementation)
+nmap <silent> giv :sp<CR><Plug>(coc-implementation)
+nmap <silent> gih :vsp<CR><Plug>(coc-implementation)
+
+nmap <silent> grr <Plug>(coc-references)
+nmap <silent> grv :sp<CR><Plug>(coc-references)
+nmap <silent> grh :vsp<CR><Plug>(coc-references)
 
 nmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>ac  <Plug>(coc-codeaction)
@@ -274,10 +290,11 @@ let g:fzf_colors = { 'fg':      ['fg', 'Normal'],
 map <Leader>e :FZF<CR>
 map <Leader>f :FZF 
 map <Leader>b :Buffers<CR>
+
 let g:fzf_preview_window = ''
 " Search workspace symbols.
-nnoremap <silent> <Leader>t  :<C-u>CocFzfList symbols<cr>
-nnoremap <silent> <Leader>s  :<C-u>CocFzfList outline<cr>
+nnoremap <silent> <Leader>t  :<C-u>CocList symbols<cr>
+nnoremap <silent> <Leader>s  :<C-u>CocList outline<cr>
 set tags=./tags,./.tags,.tags,tag,tags
 map <Leader>l :Lines<CR>
 map <Leader>` :FZF ~<CR>

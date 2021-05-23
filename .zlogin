@@ -1,4 +1,4 @@
-xset b off
+#xset b off
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
     if [[ $(hostname) = "wednesday" ]]; then
         export GDK_SCALE=2
@@ -6,3 +6,6 @@ if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
     fi
     startx
 fi
+#if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
+#	exec sway -V > ~/log/$(date -Iseconds).sway.log
+#fi

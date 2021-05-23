@@ -12,6 +12,17 @@ elif [ -n "$(ls *.tex)" ];then
     tmux send-keys -t {bottom} "ls \"$tex_file\" | entr -cps \"pdflatex --halt-on-error \\\"$tex_file\\\"\"" Enter
 
     nvim "$tex_file"
+elif [ "$(basename $(pwd))" = "rai.dev" ]; then
+  tmux rename-window "$(pwd | xargs basename)"
+  tmux split-window -v -d -p 20
+  tmux send-keys -t {bottom} "elm reactor&" Enter
+  nvim
+elif [ "$(basename $(pwd))" = "omen-exchange" ]; then
+    tmux rename-window "$(pwd | xargs basename)"
+    tmux split-window -c $(pwd)/app -v -p 20 yarn start
+    tmux split-window -h ganache-cli -i 8077 --chainId 8077
+    tmux select-pane -t {top}
+    dirty || nvim -c "FZF"
 else
     tmux rename-window "$(pwd | xargs basename)"
     tmux split-window -v -d -p 20
