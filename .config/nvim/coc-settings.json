@@ -2,6 +2,7 @@
   "coc.preferences.formatOnSaveFiletypes": [
     "rust",
     "elm",
+    "ts",
     "python"
   ],
   "languageserver": {
