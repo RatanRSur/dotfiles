@@ -68,6 +68,7 @@ emacs
 entr
 eog
 epiphany
+erigon
 evince
 evolution
 exa
@@ -206,6 +207,7 @@ iw
 jdk-openjdk
 jdk11-graalvm-bin
 jfsutils
+jprofiler
 jq
 julia
 kbfs
@@ -244,7 +246,6 @@ lvm2
 lxappearance-gtk3
 lxrandr
 m4
-magic-wormhole
 make
 man-db
 man-pages
@@ -331,6 +332,7 @@ shellcheck-bin
 signal-desktop
 simple-scan
 sl
+slack-desktop
 slop
 smartmontools
 socat
@@ -380,7 +382,6 @@ traceroute
 transmission-cli
 transmission-gtk
 trash-cli
-trezord-go
 ttf-dejavu
 ttf-jetbrains-mono
 udisks2
