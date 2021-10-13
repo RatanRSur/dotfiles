@@ -3,19 +3,6 @@
     "*"
   ],
   "languageserver": {
-    "solidity": {
-      "command": "/usr/bin/solc",
-      "args": [
-        "--lsp"
-      ],
-      "trace.server": "verbose",
-      "rootPatterns": [
-        ".git/"
-      ],
-      "filetypes": [
-        "solidity"
-      ]
-    },
     "elmLS": {
       "command": "elm-language-server",
       "filetypes": [
