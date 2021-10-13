@@ -27,15 +27,15 @@ unmap('R')
 map('t', 'on')
 map('F', 'C')
 
-Hints.style('font-family:Consolas; font-size: 9pt; border: solid 1px #1d1f21; color:#f0c674; background: initial; background-color: #1d1f21;');
+Hints.style('font-family:JetBrains Mono; font-size: 9pt; border: solid 1px #1d1f21; color:#f0c674; background: initial; background-color: #1d1f21;');
 Hints.style("border: solid 8px #C38A22;padding: 1px;background: #e39913", "text");
 settings.smoothScroll = false;
 settings.scrollStepSize = 140;
 
-// set omnibar theme
+// set theme
 settings.theme = `
 .sk_theme {
-    font-family: Consolas;
+    font-family: JetBrains Mono;
     font-size: 10pt;
     background: #24272e;
     color: #abb2bf;
@@ -61,13 +61,13 @@ settings.theme = `
 .sk_theme .omnibar_visitcount {
     color: #98c379;
 }
-.sk_theme #sk_omnibarSearchResult>ul>li:nth-child(odd) {
+.sk_theme #sk_omnibarSearchResult ul li:nth-child(odd) {
     background: #303030;
 }
-.sk_theme #sk_omnibarSearchResult>ul>li.focused {
+.sk_theme #sk_omnibarSearchResult ul li.focused {
     background: #3e4452;
 }
 #sk_status, #sk_find {
     font-size: 20pt;
 }`;
-// click `Save` button to make above settings to take effect.
+// click `Save` button to make above settings to take effect.</ctrl-i></ctrl-y>
