@@ -23,6 +23,7 @@ Plug 'ruanyl/vim-gh-line'
 Plug 'cespare/vim-toml'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'tomlion/vim-solidity'
 call plug#end()
 let g:plug_threads = 16
 
