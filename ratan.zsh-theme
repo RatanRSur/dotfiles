@@ -6,9 +6,6 @@ time=$time_enabled
 # user part, color coded by privileges
 local user="%(!.%{$fg[blue]%}.%{$fg[blue]%})%n%{$reset_color%}"
 
-# Hostname part.  compressed and colorcoded per host_repr array
-# if not found, regular hostname in default color
-local host="${host_repr[$HOST]:-$HOST}%{$reset_color%}"
 
 # Compacted $PWD
 local pwd="%{$fg[blue]%}%~%{$reset_color%}"
@@ -39,6 +36,9 @@ function sexy_git_prompt() {
 
 PROMPT=' ${pwd} $(sexy_git_prompt)'
 if [ "$SSH_CONNECTION" ]; then
+    # Hostname part.  compressed and colorcoded per host_repr array
+    # if not found, regular hostname in default color
+    local host="${host_repr[$HOST]:-$HOST}%{$reset_color%}"
     PROMPT="${user}@$HOST$PROMPT"
 fi
 
