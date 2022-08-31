@@ -1,16 +1,16 @@
 [core]
   editor = nvim
 [filter "lfs"]
-  clean = git lfs clean %f
+  clean = git lfs clean -- %f
   smudge = git lfs smudge %f
   required = true
 [user]
-  email = ratan.r.sur@gmail.com
-  name = Ratan Rai Sur
+	name = Rai
+	email = ratan.r.sur@gmail.com
 [alias]
-  c = commit --signoff
-  pull = pull --signoff
-  rebase = rebase --signoff
+  c = commit
+  pull = pull
+  rebase = rebase
   co = checkout
   fixup = commit --amend --no-edit
   unstage = restore --staged
