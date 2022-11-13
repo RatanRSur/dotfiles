@@ -35,7 +35,7 @@ max_concurrency = 12
 arguments = "--all -ff"
 repos = [
     "~/wrk/*/",
-    "~/stf/*/"
+    "~/stf/"
 ]
 
 # Don't pull the predefined git repos
