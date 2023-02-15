@@ -18,7 +18,7 @@
   excludesfile = ~/.global_ignore
   pager = diff-so-fancy | less -R
 [merge]
-  conflictstyle = diff3
+	conflictstyle = zdiff3
 [status]
   showUntrackedFiles = all
 [rerere]
@@ -41,6 +41,6 @@
 [diff]
   renameLimit = 996
 [init]
-	defaultBranch = master
+	defaultBranch = main
 [push]
 	autoSetupRemote = true
