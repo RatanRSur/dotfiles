@@ -4,3 +4,5 @@ tags
 *.~undo-tree~
 /.idea
 /.vim
+/.vscode
+.DS_Store
