@@ -1,6 +1,5 @@
 {
   "coc.preferences.formatOnSaveFiletypes": [
-    "*"
   ],
   "languageserver": {
     "elmLS": {
