@@ -21,6 +21,7 @@ if exists('g:vscode')
   Plug 'scrooloose/nerdcommenter'
   Plug 'prendradjaja/vim-vertigo'
   Plug 'wellle/targets.vim'
+  Plug 'tpope/vim-surround'
   Plug 'ruanyl/vim-gh-line'
   call plug#end()
 else
@@ -43,7 +44,6 @@ else
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
   Plug 'antoinemadec/coc-fzf'
-  Plug 'ianding1/leetcode.vim'
   Plug 'andys8/vim-elm-syntax'
   Plug 'ruanyl/vim-gh-line'
   Plug 'cespare/vim-toml'
