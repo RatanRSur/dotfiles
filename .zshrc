@@ -103,7 +103,7 @@ function gl {
 }
 
 function grl {
-    gl --color "$@" -n $(($(stty size | cut -d ' ' -f 1) / 3)) | /usr/bin/cat
+    gl --color "$@" -n $(($(stty size | cut -d ' ' -f 1) / 3)) | /bin/cat
 }
 
 backup() {
