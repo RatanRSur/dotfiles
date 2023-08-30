@@ -41,6 +41,7 @@
   rebase = false
 [diff]
   renameLimit = 996
+	algorithm = patience
 [init]
 	defaultBranch = main
 [push]
