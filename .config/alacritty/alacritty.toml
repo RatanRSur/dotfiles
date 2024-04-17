@@ -1,0 +1,86 @@
+live_config_reload = true
+
+[colors.bright]
+black = "#666666"
+blue = "#7aa6da"
+cyan = "#54ced6"
+green = "#9ec400"
+magenta = "#b77ee0"
+red = "#ff3334"
+white = "#ffffff"
+yellow = "#e7c547"
+
+[colors.dim]
+black = "#333333"
+blue = "#6699cc"
+cyan = "#66cccc"
+green = "#99cc99"
+magenta = "#cc99cc"
+red = "#f2777a"
+white = "#dddddd"
+yellow = "#ffcc66"
+
+[colors.normal]
+black = "#1d1f21"
+blue = "#7aa6da"
+cyan = "#70c0ba"
+green = "#b9ca4a"
+magenta = "#c397d8"
+red = "#d54e53"
+white = "#ffffff"
+yellow = "#e6c547"
+
+[colors.primary]
+background = "#000000"
+foreground = "#eaeaea"
+
+[cursor]
+style = "Block"
+unfocused_hollow = true
+
+[font]
+size = 13
+
+[font.bold]
+family = "JetBrains Mono NL"
+style = "Bold"
+
+[font.bold_italic]
+family = "JetBrains Mono NL"
+style = "Bold Italic"
+
+[font.italic]
+family = "JetBrains Mono NL"
+style = "Italic"
+
+[font.normal]
+family = "JetBrains Mono NL"
+style = "Regular"
+
+[[hints.enabled]]
+command = "xdg-open"
+post_processing = true
+regex = "(mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\"\\s{-}\\^⟨⟩`]+"
+
+[hints.enabled.binding]
+key = "U"
+mods = "Control|Shift"
+
+[hints.enabled.mouse]
+enabled = true
+mods = "Shift"
+
+[mouse]
+hide_when_typing = true
+
+[[mouse.bindings]]
+action = "PasteSelection"
+mouse = "Middle"
+
+[mouse.double_click]
+threshold = 300
+
+
+[window]
+decorations = "full"
+startup_mode = "Maximized"
