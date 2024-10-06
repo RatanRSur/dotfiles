@@ -64,17 +64,17 @@ if hash nvim 2>/dev/null; then
 fi
 export VISUAL=$EDITOR
 
-if hash exa 2>/dev/null; then
+if hash eza 2>/dev/null; then
     unalias l
     function l {
         grid_option=""
         if [ $(ls -A "$@" | wc -l) -gt $(tput lines) ]; then
             grid_option="--grid"
         fi
-        exa --group --long --all $grid_option "$@"
+        eza --group --long --all $grid_option "$@"
     }
     function tree {
-        exa --tree "$@"
+        eza --tree "$@"
     }
 fi
 
