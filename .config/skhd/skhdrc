@@ -1,0 +1,18 @@
+# focusing
+cmd + ctrl - h : yabai -m window --focus west
+cmd + ctrl - j : yabai -m window --focus south
+cmd + ctrl - k : yabai -m window --focus north
+cmd + ctrl - l : yabai -m window --focus east
+
+# scripting addition needed to make this work but ^1,2,3 etc. work already
+# cmd + ctrl - 1 : yabai -m space --focus 1
+# cmd + ctrl - 2 : yabai -m space --focus 2
+
+# moving
+cmd + shift - h : yabai -m window --swap west
+cmd + shift - j : yabai -m window --swap south
+cmd + shift - k : yabai -m window --swap north
+cmd + shift - l : yabai -m window --swap east
+
+# zooming
+cmd + ctrl - return : yabai -m window --toggle zoom-fullscreen
