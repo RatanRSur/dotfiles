@@ -1,3 +1,4 @@
+[misc]
 # Don't ask for confirmations
 #assume_yes = true
 
@@ -14,7 +15,7 @@ no_retry = true
 #run_in_tmux = true
 
 # List of remote machines with Topgrade installed on them
-remote_topgrades = ["dustbunny","dustbunny-local"]
+remote_topgrades = []
 
 # Arguments to pass SSH when upgrading remote systems
 #ssh_arguments = "-o ConnectTimeout=2"
@@ -31,11 +32,10 @@ remote_topgrades = ["dustbunny","dustbunny-local"]
 #cleanup = true
 
 [git]
-max_concurrency = 12
+max_concurrency = 64
 arguments = "--all -ff"
 repos = [
-    "~/wrk/*/",
-    "~/stf/"
+    "~/stf/*"
 ]
 
 # Don't pull the predefined git repos
