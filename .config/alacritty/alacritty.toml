@@ -57,7 +57,7 @@ family = "JetBrains Mono NL"
 style = "Regular"
 
 [[hints.enabled]]
-command = "xdg-open"
+command = "open"
 post_processing = true
 regex = "(mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\"\\s{-}\\^⟨⟩`]+"
 
