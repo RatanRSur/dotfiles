@@ -76,10 +76,9 @@ hide_when_typing = true
 action = "PasteSelection"
 mouse = "Middle"
 
-[mouse.double_click]
-threshold = 300
-
-
 [window]
 decorations = "full"
 startup_mode = "Maximized"
+
+[general]
+live_config_reload = true
