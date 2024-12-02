@@ -14,5 +14,13 @@ cmd + shift - j : yabai -m window --swap south
 cmd + shift - k : yabai -m window --swap north
 cmd + shift - l : yabai -m window --swap east
 
-# zooming
+# zooming / reshaping
 cmd + ctrl - return : yabai -m window --toggle zoom-fullscreen
+cmd + shift - 0x18 : yabai -m space --balance
+cmd + shift - left  : yabai -m window --resize left:-50:0  || yabai -m window --resize right:-50:0
+cmd + shift - right : yabai -m window --resize right:50:0  || yabai -m window --resize left:50:0
+cmd + shift - up    : yabai -m window --resize top:-50:0   || yabai -m window --resize bottom:-50:0
+cmd + shift - down  : yabai -m window --resize bottom:50:0 || yabai -m window --resize top:50:0
+
+# applications
+cmd + shift - c : /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --profile-directory="Default" --new-window
