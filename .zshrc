@@ -153,7 +153,7 @@ c() {
     if check_http; then
         local model="claude-3-5-sonnet-latest"
     else
-        local model="meta-llama-3-8b-instruct"
+        local model="Meta-Llama-3-8B-Instruct"
     fi
 
     local preface="you generate macOS commands. answer with the command in a ONELINER FIRST and then add some explainer in subsequent lines. generate a command for:"
@@ -168,7 +168,7 @@ chat() {
     if check_http; then
         local model="claude-3-5-sonnet-latest"
     else
-        local model="meta-llama-3-8b-instruct"
+        local model="Meta-Llama-3-8B-Instruct"
     fi
 
     llm chat -m $model "$@"
@@ -178,7 +178,7 @@ ask() {
     if check_http; then
         local model="claude-3-5-sonnet-latest"
     else
-        local model="meta-llama-3-8b-instruct"
+        local model="Meta-Llama-3-8B-Instruct"
     fi
 
     llm -m $model "$@"
@@ -188,9 +188,9 @@ gcai() {
     if check_http; then
         local model="gemini-1.5-pro-latest"
     else
-        local model="meta-llama-3-8b-instruct"
+        local model="Meta-Llama-3-8B-Instruct"
     fi
-    git commit --edit -m "$(git diff --cached | llm -m $model -c "create a commit message for this. only return the commit message in standard git format with the message on the first line and the description after 1 blank line. DO NOT put it in code block. Output raw text.")"
+    git commit --edit -m "$(git diff --cached | llm -m $model -c "create a commit message for this. only return the commit message in standard git format with the message on the first line and the description after 1 blank line.")"
 }
 
 ####
