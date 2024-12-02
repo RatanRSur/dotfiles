@@ -124,6 +124,76 @@ mkcd()
     mkdir --parents "$dir" && cd "$dir";
 }
 
+check_http() {
+    local cache_file="/tmp/http_available_cache"
+    local cache_ttl=60
+
+    # Check if cache exists and is fresh
+    if [[ -f "$cache_file" ]]; then
+        local cache_time=$(stat -f %m "$cache_file")
+        local current_time=$(date +%s)
+        local age=$((current_time - cache_time))
+
+        if [[ $age -lt $cache_ttl ]]; then
+            return $(cat "$cache_file")
+        fi
+    fi
+
+    # Check connectivity and cache result
+    if scutil -r google.com > /dev/null 2>&1; then
+        echo 0 > "$cache_file"
+        return 0
+    else
+        echo 1 > "$cache_file"
+        return 1
+    fi
+}
+
+c() {
+    if check_http; then
+        local model="claude-3-5-sonnet-latest"
+    else
+        local model="meta-llama-3-8b-instruct"
+    fi
+
+    local preface="you generate macOS commands. answer with the command in a ONELINER FIRST and then add some explainer in subsequent lines. generate a command for:"
+    local command_request="$1"
+    oneliner=$(llm -m $model "$preface\n$command_request" | vipe | head -1)
+    echo "$oneliner" | pbcopy
+    echo "$oneliner"
+    echo "stored in clipboard"
+}
+
+chat() {
+    if check_http; then
+        local model="claude-3-5-sonnet-latest"
+    else
+        local model="meta-llama-3-8b-instruct"
+    fi
+
+    llm chat -m $model "$@"
+}
+
+ask() {
+    if check_http; then
+        local model="claude-3-5-sonnet-latest"
+    else
+        local model="meta-llama-3-8b-instruct"
+    fi
+
+    llm -m $model "$@"
+}
+
+gcai() {
+    if check_http; then
+        local model="gemini-1.5-pro-latest"
+    else
+        local model="meta-llama-3-8b-instruct"
+    fi
+    git commit --edit -m "$(git diff --cached | llm -m $model -c "create a commit message for this. only return the commit message in standard git format with the message on the first line and the description after 1 blank line. DO NOT put it in code block. Output raw text.")"
+}
+
+####
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
