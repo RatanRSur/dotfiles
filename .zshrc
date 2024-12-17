@@ -200,6 +200,24 @@ gcai() {
     git commit --edit -m "$(git diff --cached | llm -m $model -c "create a commit message for this. only return the commit message in standard git format with the message on the first line and the description after 1 blank line. If the commit seems to do multiple things, it's ok to say multiple things in the top line message")"
 }
 
+media-summarize() {
+  local url="$1"
+
+  local tmpdir=$(mktemp -d)
+  local audio="$tmpdir/audio.mp3"
+
+  yt-dlp -x --audio-format mp3 \
+         --postprocessor-args "-b:a 96k -ac 1 -ar 22050" \
+         -o "$audio" \
+         "$url"
+
+  llm -m "gpt-4o-audio-preview" \
+      'Pull the points made out of this audio. Focus on completeness instead of conciseness. It should be more like a cleaned up record than a summary.' \
+      -a "$audio"
+
+  rm -rf "$tmpdir"
+}
+
 ####
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
