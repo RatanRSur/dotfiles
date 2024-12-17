@@ -158,7 +158,7 @@ cheap_model="gemini-2.0-flash"               # GPQA-best w/ < ($5)/(1M Tokens)
 
 c() {
     if check_http; then
-        local model="$coding_model"
+        local model="$fast_coding_model"
     else
         local model="$local_model"
     fi
