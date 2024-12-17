@@ -149,11 +149,18 @@ check_http() {
     fi
 }
 
+# From https://artificialanalysis.ai/leaderboards/models
+generalist_model="o1-preview"                # MMLU-best
+reasoning_model="o1-preview"                 # GPQA-best
+best_coding_model="o1-mini"                  # HUMANEVAL-best
+fast_coding_model="claude-3-5-sonnet-latest" # HUMANEVAL-best w/ <1s latency
+cheap_model="gemini-2.0-flash"               # GPQA-best w/ < ($5)/(1M Tokens)
+
 c() {
     if check_http; then
-        local model="claude-3-5-sonnet-latest"
+        local model="$coding_model"
     else
-        local model="Meta-Llama-3-8B-Instruct"
+        local model="$local_model"
     fi
 
     local preface="you generate macOS commands. answer with the command in a ONELINER FIRST and then add some explainer in subsequent lines. generate a command for:"
@@ -166,9 +173,9 @@ c() {
 
 chat() {
     if check_http; then
-        local model="claude-3-5-sonnet-latest"
+        local model="$reasoning_model"
     else
-        local model="Meta-Llama-3-8B-Instruct"
+        local model="$local_model"
     fi
 
     llm chat -m $model "$@"
@@ -176,9 +183,9 @@ chat() {
 
 ask() {
     if check_http; then
-        local model="claude-3-5-sonnet-latest"
+        local model="$reasoning_model"
     else
-        local model="Meta-Llama-3-8B-Instruct"
+        local model="$local_model"
     fi
 
     llm -m $model "$@"
@@ -186,11 +193,11 @@ ask() {
 
 gcai() {
     if check_http; then
-        local model="gemini-1.5-pro-latest"
+        local model="$fast_coding_model"
     else
-        local model="Meta-Llama-3-8B-Instruct"
+        local model="$local_model"
     fi
-    git commit --edit -m "$(git diff --cached | llm -m $model -c "create a commit message for this. only return the commit message in standard git format with the message on the first line and the description after 1 blank line.")"
+    git commit --edit -m "$(git diff --cached | llm -m $model -c "create a commit message for this. only return the commit message in standard git format with the message on the first line and the description after 1 blank line. If the commit seems to do multiple things, it's ok to say multiple things in the top line message")"
 }
 
 ####
